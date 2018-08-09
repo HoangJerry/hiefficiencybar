@@ -1,0 +1,173 @@
+<div class="container-fluid _container_tivi">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="_order animated bounceInLeft">
+                <h3>Upcoming orders</h3>
+            </div>
+            <div class="_order_user">
+                <div ng-if="data_pending.length > 0" class="_user animated bounceInLeft" ng-repeat="item in data_pending | orderBy: 'key' | limitTo:5 ">
+                    <div ng-if="item.user.avatar" class="_avt _img">
+                        <img ng-if="item.user.avatar" src="{{ item.user.avatar }}" alt="" class="img-circle">
+                        <img ng-if="!item.user.avatar" src="{{ item.user.avatar_url }}" alt="" class="img-circle">
+                    </div>
+                    <p class="_user_name">{{ item.user.first_name }} {{ item.user.last_name }}</p>
+                </div>
+            </div>
+            <div class="_order_robot animated zoomIn">
+                <img src="assets/img/tivi/robot.png" alt="">
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="col-md-8">
+                <div class="_ctn_header">
+                    <div class="_title">
+                        <h3>
+                            <i class="ion-android-arrow-down"></i> Now serving</h3>
+                        </div>
+                        <div class="_icon_bottom"></div>
+                        <div class="_title_name">
+                            <div ng-show="data_processing[0].user.avatar" class="_avt animated zoomIn">
+                                <img ng-show="data_processing[0].user.avatar" src="{{data_processing[0].user.avatar}}" alt="" class="img-circle">
+                                <img ng-show="!data_processing[0].user.avatar" src="{{data_processing[0].user.avatar_url}}" alt="" class="img-circle">
+                            </div>
+                            <h3 ng-if="data_processing[0].user.first_name" class="animated flash">{{ data_processing[0].user.first_name }} {{ data_processing[0].user.last_name }}</h3>
+                        </div>
+                    </div>
+                    <div class="_ctn">
+                        <div class="_left_6">
+                            <h3>Drink</h3>
+                            <div class="_ctn_drink" id="_ctn_drink">
+                            <!-- <a>
+                                <span>2</span> {{ product.drink.name }}
+                                <i></i>
+                            </a> -->
+                            <a ng-class="{'isActive' : product.status > 30}" class="" href="{{product.status}}" ng-repeat="product in data_processing[0].products">
+                                <span>2</span> {{ product.drink.name }}
+                                <i></i>
+                            </a>
+                        </div>
+                        <div class="_drink_times">
+                            <div class="_times">
+                                <h3>Order Wait time</h3>
+                                <h1>04:30</h1>
+                            </div>
+                            <div class="_times">
+                                <h3>Time completed</h3>
+                                <h1>04:35</h1>
+                            </div>
+                            <div class="_times">
+                                <h3>Robot</h3>
+                                <h1 id="timer_robot">0</h1>
+                            </div>
+                            <div class="_times">
+                                <h3>Pickup @ slide</h3>
+                                <h1 id="timer_pickup">0</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_right_4">
+                        <!-- <div class="_ingredient_img">
+                            <img class="_image" src="assets/img/tivi/ic5.png" alt="">
+                        </div> -->
+                        <div class="_ingredient_img _ingredient_content" id="_ingredient">
+                            <div class="_ingredient_img_bg">
+                                <img class="_image" src="assets/img/tivi/ic8.png" alt="" id="_img_ingredient" height="100%">
+                            </div>
+
+                            <!-- <div class="_ingre_1 color_1"></div>
+                            <div class="_ingre_2 color_2"></div>
+                            <div class="_ingre_3 color_3"></div>
+                            <div class="_ingre_4 color_4"></div>
+                            <div class="_ingre_5 color_5"></div>
+                        -->
+                    </div>
+                    <div class="_ingredient_ctn" id="_ingredient_ctn">
+                        <h3>Ingredient</h3>
+                        <!-- <p class="_ingre_1"><i></i> Tequila</p>
+                        <p class="_ingre_2"><i></i> Cointreau</p>
+                        <p class="_ingre_3"><i></i> Lime Juice</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="_stats_header">
+                <h3>Quick stats</h3>
+            </div>
+            <div class="_stats_ctn">
+                <div class="_stats_1 _drink_served">
+                    <h3>Drinks served</h3>
+                    <h1 id="timer_drink_served">0</h1>
+                    <p>Total for Today</p>
+                </div>
+                <div class="_stats_1 _avg_time">
+                    <h3>AVG. Time/drink</h3>
+                    <h1 ng-show="data_socket.statistic_avg_time_per_drink_today">{{ data_socket.statistic_avg_time_per_drink_today }}</h1>
+                    <h1 ng-show="!data_socket.statistic_avg_time_per_drink_today">0</h1>
+                    <p>Total for Today</p>
+                </div>
+                <div class="_stats_1 _server_speed">
+                    <h3>Server Speed</h3>
+                    <h1>75%</h1>
+                    <p>Current Speed</p>
+                </div>
+                <div class="_stats_1 _pickup_slide">
+                    <h3>Pickup @ slide</h3>
+                    <p>Jill H.
+                        <span class="pull-right">05</span>
+                    </p>
+                    <p>Jill H.
+                        <span class="pull-right">05</span>
+                    </p>
+                    <p>Jill H.
+                        <span class="pull-right">05</span>
+                    </p>
+                    <p>Jill H.
+                        <span class="pull-right">05</span>
+                    </p>
+                    <p>Jill H.
+                        <span class="pull-right">05</span>
+                    </p>
+                </div>
+            </div>
+            <div class="_slider">
+
+                <div style="" class="_slider_ctn">
+                    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                        <div uib-slide ng-repeat="(key, twitter) in twitters" index="key">
+                            <div class="_slider_title" style="text-align: left;">
+                                <h3>Recent posts <i class="pull-right ion-social-twitter"></i></h3>
+                                <h4>{{ twitter.user.name }}</h4>
+                                <p>@{{ twitter.user.screen_name }}</p>
+                            </div>
+                            <div class="_slider_p">
+                                <p>{{ twitter.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="_playing">
+                <div class="_wait_time">
+                    <h3>New Order Wait Time</h3>
+                    <h1>05:15</h1>
+                </div>
+                <div class="_btn_play_now animated zoomInDown">
+                        <!-- <h3>
+                            <i></i> Livi'n on Prayer
+                            <span>- Bon Jovi</span>
+                        </h3>
+                        <a href="">NOw Playing</a> -->
+                        <iframe src="https://open.spotify.com/embed?uri=spotify:album:1DFixLWuPkv3KT3TnV35m3&theme=white" width="1000" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- go to dashboard -->
+    <!-- <div class="_back_home">
+        <a href="#/" class="heart animated css"><i class="ion-android-exit"></i></a>
+    </div> -->
+</div>

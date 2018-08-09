@@ -1,0 +1,106 @@
+/*open footer*/
+.footer{
+  &_patented{
+    text-align: center;
+    background: #1E283B;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    h3{
+      color: #ffffff;
+      font-size: 18px;
+      padding: 15px 0;
+      font-weight: bold;
+    }
+    h2{
+      color: #D9BA00;
+      font-size: 25px;
+      padding-bottom:10px ;
+    }
+    .content{
+      color: #ffffff;
+      padding-bottom:10px ;
+      margin: 0 auto;
+      max-width: 66.66667%;
+      line-height: 25px;
+    }
+    .number{
+      color: #ffffff;
+    }
+  }
+  &_contact{
+    background: #F0F0F0;
+    &_title{
+      line-height: 130px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 30px;
+      font-weight: lighter;
+    }
+    &_button{
+      background: #3496AD;
+      border-radius: 50px;
+      line-height: 130px;
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    &_button:hover{
+      background: #ffffff;
+      color: #3496AD;
+      text-decoration: none;
+    }
+  }
+  &_navbar{
+    &_logo{
+      img{
+        width: 90%;
+        height: auto;
+      }
+    }
+    &_menu{
+      padding-top: 60px;
+      li{
+        a{
+          color: #3496AD;
+          font-family: 'Roboto', sans-serif;
+          font-size: 14px;
+        }
+      }
+    }
+    &_about{
+      padding-top: 60px;
+      h3{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        margin: 10px 0;
+      }
+      p{
+        line-height: 17px;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+    &_social{
+      padding-top: 60px;
+      h3{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        margin: 10px 0;
+      }
+      a{
+      }
+    }
+  }
+  &_copyRight{
+    text-align: center;
+    margin: 50px 0 20px 0;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #7B7B7B;
+    font-weight: lighter;
+  }
+}
+/*close footer*/

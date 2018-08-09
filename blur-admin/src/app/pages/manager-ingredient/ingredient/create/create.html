@@ -1,0 +1,100 @@
+<div ba-panel="" ba-panel-title="Create Ingredient" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+
+                <select class="form-control" name="status" ng-model="data_create.status" ng-change="changeInfo('status', data_create.status)">
+                    <option class="form-control" value="0">ON</option>
+                    <option class="form-control" value="10">OFF</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Type</label>
+
+                <div ng-class=" {'row' : isAddElement.type} ">
+                    <div ng-class=" {'col-md-11' : isAddElement.type} ">
+                        <select class="form-control" name="status" ng-model="data_create.type" ng-change="changeInfo('type', data_create.type)">
+                            <option ng-repeat="item in types" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div ng-if="isAddElement.type" class="col-md-1">
+                        <button class="btn btn-primary form-control" data-toggle="modal" ng-click="openAddType('md')">
+                            <i class="ion-plus-round"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Type By</label>
+
+                <div ng-class=" {'row' : isAddElement.type} ">
+                    <div ng-class=" {'col-md-12' : isAddElement.type} ">
+                        <select class="form-control" name="status" ng-model="data_create.type_search" ng-change="changeInfo('type_search', data_create.type_search)">
+                            <option class="form-control" value="0">Basics</option>
+                            <option class="form-control" value="10">Spirits</option>
+                            <option class="form-control" value="20">Liquers</option>
+                            <option class="form-control" value="30">Mixers</option>
+                            <option class="form-control" value="40">Other</option>
+                            <option class="form-control" value="50">Fruits</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="data_create.name" ng-change="changeInfo('name', data_create.name)"
+                    >
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Price</label>
+                <input class="form-control" type="number" name="price" placeholder="Price" ng-model="data_create.price" ng-change="changeInfo('price', data_create.price)">
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Background Color</label>
+                <input colorpicker="rgb" type="text" ng-model="data_create.background_color" class="form-control" name="background_color" placeholder="Background color" style="background-color: {{data_create.background_color}};"/>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Bottles</label>
+                <input class="form-control" type="number" name="bottles" placeholder="Bottles" ng-model="data_create.bottles" ng-change="changeInfo('bottles', data_create.bottles)">
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Quantity in Bottle in mL</label>
+                <input class="form-control" type="number" name="quanlity_of_bottle" placeholder="Quanlity of bottle" ng-model="data_create.quanlity_of_bottle"
+                    ng-change="changeInfo('quanlity_of_bottle', data_create.quanlity_of_bottle)">
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Brand</label>
+
+                <div ng-class=" {'row' : isAddElement.brand} ">
+                    <div ng-class=" {'col-md-11' : isAddElement.brand} ">
+                        <select ng-disabled="isDisableBrand" class="form-control" name="brand" ng-model="data_create.brand" ng-change="changeInfo('brand', data_create.brand)"
+                            required>
+                            <option ng-repeat="item in brands" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div ng-if="isAddElement.brand" class="col-md-1">
+                        <button class="btn btn-primary form-control" data-toggle="modal" ng-click="openAddBrand('md')">
+                            <i class="ion-plus-round"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                <input type='file' id="uploadFile" class="form-control" ng-model="data_create.image" onchange="angular.element(this).scope().imageUpload(event)"
+                />
+            </div>
+
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="create()">Create</button>
+        </form>
+    </div>
+</div>

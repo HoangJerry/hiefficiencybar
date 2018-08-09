@@ -1,0 +1,47 @@
+<div class="" style="margin-bottom : 15px;">
+	<a class="btn btn-primary" href="#/manager-drink/separate-glass/create" style="background: #209e91; border-color: #209e91;">Create</a>
+</div>
+
+<div ba-panel="" ba-panel-title="List Glassware" ba-panel-class="with-scroll">
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="table-id">#</th>
+					<th>Name</th>
+					<th>Status</th>
+					<th style="text-align : center;">Image</th>
+					<th>Size</th>
+					<th>Unit</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in listGalss" class="ng-scope">
+					<td class="table-id ng-binding align-items-center">{{item.id}}</td>
+					<td class="ng-binding  align-items-center">
+						<a href="#/manager-drink/separate-glass/detail/{{item.id}}">{{item.name}}</a>
+					</td>
+					<td class="ng-binding align-items-center">
+						<div class="_status">
+                            <ba-switcher switcher-style="success" switcher-value="item.status" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div>
+					</td>
+					<td class="ng-binding align-items-center" style="text-align : center;">
+						<!-- <a href="{{item.image}}">{{item.image}}</a> -->
+						<div class="_image_glass">
+							<img ng-if="item.image" ng-src="{{ item.image }}" alt="{{item.image}}">
+						</div>
+					</td>
+					<td class="ng-binding align-items-center">{{item.size}}</td>
+					<td class="ng-binding align-items-center">{{item.unit_view}}</td>
+					<td class="ng-binding align-items-center">
+						<a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+							<i class="ion-android-delete"></i>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

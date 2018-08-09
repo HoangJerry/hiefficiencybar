@@ -1,0 +1,36 @@
+<div class="" style="margin-bottom : 15px; text-align : right;">
+    <a class="btn btn-primary" href="#/robot/import/"  style="background: #209e91; border-color: #209e91;"><i class="fa fa-sign-in-alt"></i> Import</a>
+</div>
+
+<div ba-panel="" ba-panel-title="Robots" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped" st-table="editableTableData">
+            <thead>
+                <tr>
+                    <th style="text-align : left;">Id</th>
+                    <!-- <th>Name</th> -->
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listData" class="ng-scope editable-tr-wrap">
+                    <td class="ng-binding" style="text-align : left;">
+                        <a href="#/robot/detail/{{item.id}}">{{item.id}}</a>
+                    </td>
+                    <!-- <td class="ng-binding">
+                        <span editable-text="item.name" blur="cancel">{{item.name}}</span>
+                    </td> -->
+                    <td class="ng-binding">
+                        <div class="_status">
+                            <ba-switcher switcher-style="success" switcher-value="item.status" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

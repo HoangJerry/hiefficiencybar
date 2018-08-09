@@ -1,0 +1,21 @@
+/* For resolution 1920 and above */
+@media (min-width: 1920px){
+  .container{
+    width: 1440px;
+  }
+  .main_powerful {
+    min-height: 694px;
+    background: #3496AD;
+  }
+  .header{
+    &_navbar{
+      &_menu hr {
+        color: #ffffff;
+        margin-top: 46px;
+      }
+    }
+  }
+}
+.main_navbar .bar_item_padding {
+  padding-bottom: 382px;
+}

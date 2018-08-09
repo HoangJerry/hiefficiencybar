@@ -1,0 +1,38 @@
+<div ba-panel="" ba-panel-title="Detail Garnish" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="detail.name" ng-change="changeInfo('name', detail.name)"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Image</label>
+                <div>
+                    <div class="userpic">
+                        <div ng-show="isChangeImage" class="userpic-wrapper">
+                            <img style="width: 100% !important;" src="{{ detail.image }}" ng-click="uploadPicture()">
+                        </div>
+                        <div ng-show="!isChangeImage" class="userpic-wrapper">
+                            <img style="width: 100% !important;" src="{{ image }}" ng-click="uploadPicture('image')">
+                        </div>
+                        <i ng-show="!isChangeImage" class="ion-ios-close-outline" ng-click="removePicture('image')" ng-if="!noPicture"></i>
+                        <a href class="change-userpic" ng-click="uploadPicture('image')">Change Image</a>
+
+                        <input type='file' id="uploadImage" ng-show="false" ng-model-instant onchange="angular.element(this).scope().imageUpload(event, 'image')"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Active</label>
+                <div style="width: 100%; margin-top: 15px;">
+                    <ba-switcher switcher-style="success" switcher-value="detail.active" ng-click="changeInfo('active', detail.active)"></ba-switcher>
+                </div>
+            </div>
+            <button ng-disabled="form.$invalid" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div ba-panel="" ba-panel-title="Detail Order / {{detail.name}}" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+                <select class="form-control" name="status" ng-model="detail.status" ng-change="changeInfo('status', detail.status)">
+                    <option class="form-control" ng-value="0">New</option>
+                    <option class="form-control" ng-value="10">Processing</option>
+                    <option class="form-control" ng-value="20">Finished</option>
+                    <option class="form-control" ng-value="30">Took</option>
+                    <option class="form-control" ng-value="40">Not take</option>
+                    <option class="form-control" ng-value="50">Not do due to ingredient</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">User</label>
+                <select class="form-control" name="status" ng-model="detail.user" ng-change="changeInfo('user', detail.user)">
+                    <option ng-repeat="item in list_users" class="form-control" ng-value="item.id">{{item.email}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Channel</label>
+                <select class="form-control" name="status" ng-model="detail.user" ng-change="changeInfo('user', detail.user)">
+                    <option class="form-control" ng-value="1">PayPal</option>
+                    <option class="form-control" ng-value="2">Stripe</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Transaction code</label>
+                <input type='text' class="form-control" ng-model="detail.transaction_code" ng-change="changeInfo('transaction_code', detail.transaction_code)"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Transaction Id</label>
+                <input type='text' class="form-control" ng-model="detail.transaction_id" ng-change="changeInfo('transaction_id', detail.transaction_id)"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Payer Firstname</label>
+                <input type='text' class="form-control" ng-model="detail.payer_firstname" ng-change="changeInfo('payer_firstname', detail.payer_firstname)"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Payer Lastname</label>
+                <input type='text' class="form-control" ng-model="detail.payer_lastname" ng-change="changeInfo('payer_lastname', detail.payer_lastname)"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Payer Email</label>
+                <input type='text' class="form-control" ng-model="detail.payer_email" ng-change="changeInfo('payer_email', detail.payer_email)"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Tray Number</label>
+                <input type='text' class="form-control" ng-model="detail.tray_number" ng-change="changeInfo('tray_number', detail.tray_number)"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Robot</label>
+                <select class="form-control" name="status" ng-model="detail.robot" ng-change="changeInfo('robot', detail.robot)">
+                    <option ng-repeat="item in list_robot" class="form-control" ng-value="item.id">Robot - {{ item.id }}</option>
+                </select>
+            </div>
+
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+        </form>
+    </div>
+</div>

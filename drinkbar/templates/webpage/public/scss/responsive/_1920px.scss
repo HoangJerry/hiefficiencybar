@@ -1,0 +1,86 @@
+/* For resolution 1200 - 1919 and above */
+@media (max-width: 1919px){
+  /*header*/
+  .header{
+    /*header navbar*/
+    &_navbar{
+      &_menu{
+        .navbar-collapse{
+          ul.nav{
+            li{
+              float: left;
+              margin-left: 16px;
+              a{
+                font-size: 16px;
+              }
+            }
+            li.contact{
+              margin-left: 167px;
+            }
+          }
+        }
+        hr{
+          color: #ffffff;
+          margin-top: 30px;
+        }
+      }
+    }
+    /*banner*/
+    &_banner{
+      &_info{
+        h3{
+          font-size: 80px;
+          line-height: 88px;
+        }
+        p{
+          font-size: 22px;
+        }
+        .button{
+          a{
+            font-size: 18px;
+          }
+        }
+      }
+      &_avatar{
+        img{
+          width: 117%;
+          height: auto;
+        }
+      }
+    }
+  }
+  /*open Main*/
+  .main{
+    /*Navbar*/
+    &_navbar{
+      .bar{
+        &_item {
+          &_title{
+            font-size: 44px;
+          }
+          &_content{
+            font-size: 17px;
+            line-height: 27px;
+          }
+          &_padding{
+            padding-bottom: 386px;
+          }
+          &_button{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    /*powerful*/
+    &_powerful{
+      height: 543px;
+      &_avatar{
+        img{
+          width: 84%;
+          margin-left: 90px;
+        }
+      }
+    }
+  }
+  /*Close Main*/
+}

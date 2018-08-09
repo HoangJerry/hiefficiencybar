@@ -1,0 +1,47 @@
+
+<div class="" style="margin-bottom : 15px; display: inline-block; overflow : hidden;">
+	<a class="btn btn-primary" href="#/manager-user/create-user" style="background: #209e91; border-color: #209e91;">Create</a>
+</div>
+
+<div class="_search_data pull-right">
+    <div class="_search_form">
+        <input type="text" name="search" ng-model="keywork" ng-keyup="$event.keyCode == 13 && searchData()" ng-change="changeKeywork(keywork)">
+        <a href="" ng-click="searchData()"><i class="ion-search"></i></a>
+	</div>
+</div>
+
+
+<div ba-panel="" ba-panel-title="List Users" ba-panel-class="with-scroll">
+	<div class="panel-body">
+		<table class="table table-striped" st-table="smartTableData">
+			<thead>
+				<tr class="sortable">
+					<th class="ng-binding" style="text-align : left;">Username / Email</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Birthday</th>
+					<th class="ng-binding" style="width: 30px; text-align : center;">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in listUser" class="ng-scope">
+					<td class="ng-binding" style="text-align : left;">
+						<a href="#/manager-user/user-detail/{{item.id}}">{{item.email}}</a>
+					</td>
+					<td class="ng-binding">{{item.first_name}}</td>
+					<td class="ng-binding">{{item.last_name}}</td>
+					<td class="ng-binding">{{item.birthday | date:'MM/dd/yyyy'}}</td>
+					<td class="ng-binding" style="width: 30px; text-align : center;">
+						<a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+							<i class="ion-android-delete"></i>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="align-right" ng-show="bigTotalItems > 10">
+			<ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+			 class="pagination-sm" boundary-link-numbers="true"></ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+                <em class="ion-ios-close-empty sn-link-close"></em>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Add Garnish</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="" class="label_black">Garnish</label>
+                <select class="form-control" name="garnish" ng-model="garnish" ng-change="changeInfo('garnish', garnish)">
+                    <option value="">Select Garnish</option>
+                    <option ng-repeat="item in list_garnish" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label class="label_black" for="">Piece</label>
+                <input type="number" class="form-control" name="ratio" placeholder="Ratio" min="0" ng-model="data_create.ratio" ng-change="changeInfo('ratio', data_create.ratio)">
+            </div>
+    
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" ng-click="add()">Add</button>
+        </div>
+    </div>

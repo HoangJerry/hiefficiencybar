@@ -1,0 +1,178 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hi-Efficiency | {{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'public/template/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'public/template/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'public/css/style.css' %}">
+    {% block style %}
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'public/css/responsive.css' %}">
+    <meta name="keywords" content="man cave, private bartender, ultimate man cave bar, mobile bar, custom design, customized bar, wedding bar, parties, graduation, celebration, mocktails, cocktails, beer bar, sweet 16, front bar, back bar, home bar, customization, bartending solutions, carnival, corporate, Robotic bar, robot bar, robo bar, high efficiency, hi-efficiency, hi efficiency bar, hi-efficiencybar, hi-efficiency bartender, maker shaker, tipsy bartender, makr shakr, robotic bartender, automation bar, mobile bartender, mobile martini bar, automated drink maker, the first robotic bartender, Tipsy robot, tipsy bar, robo bartender, shake and make, robotic martini, robot martini, automated martini, automated restaurant, robotic restaurant, robot restaurant, robotic mixologist, robot mixologist, robo mixologist, robo martini,Cleveland robot bartender, Cleveland robo bartender, Cleveland robotic bartender, Quantum of the sea, Carnival cruise robot">
+
+    <meta name="description" content="Hi-Efficiency">
+
+    <meta name="author" content="PSCD">
+
+    <meta property="og:url" content="http://http://hiefficiencybar.com/" >
+    <meta property="og:type" content="restaurant.restaurant" />
+    <meta property="og:title" content="hiefficiencybar" />
+    <meta property="og:description" content="Hi-Efficiency" />
+    <meta property="og:image" content="http://hiefficiencybar.com/static/public/images/header_logo.png" />
+
+    <meta name="google-site-verification" content="OutOVa1KrCjlNtiQinbC7Bj_RjcuKb3A6uo1lljyw-k" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119962397-1"></script>
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-119962397-1');
+    </script>
+
+</head>
+<body id="ctn-home-bar">
+    <header class="header">
+        <!--Header Menu-->
+        <div class="header_navbar">
+            <div class="container">
+                <nav class="header_navbar_menu navbar">
+                    <div class="row">
+                        <div class="navbar-header collapsed col-md-3 col-sm-12 col-lg-3">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavba">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="{% url 'index' %}" title="" id="logo"><img src="{% static 'public/images/header_logo.png' %}" alt="home"></a>
+                        </div>
+                        <div class="navbar-collapse collapse col-md-8 col-lg-8 col-sm-12 navbar-right" id="myNavba">
+                            <ul class="nav navbar-nav">
+                                <li><a {% if title == "Front Bar" %} class="active" {% endif %} href="{% url 'front-bar-page' %}">Front Bar</a></li>
+                                <li><a {% if title == "Back Bar" %}class="active"{% endif %} href='{% url "back-bar-page" %}'>Back Bar</a></li>
+                                <li><a {% if title == "Home Bar" %}class="active"{% endif %} href='{% url "home-bar-page" %}'>Home Bar</a></li>
+                                <li><a {% if title == "Mobile Bar" %}class="active"{% endif %} href='{% url "mobile-bar-page" %}'>Mobile Bar</a></li>
+                                <li class="contact"><a href="#" data-toggle="modal" data-target="#contact">Contact US</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                </nav>
+            </div>
+        </div>
+        <!-- Modal Contact US-->
+        <section class="modal fade container-fluid" id="contact" role="dialog">
+            <div class="row">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal_logo"><a href="{% url 'index' %}"><img src="{% static 'public/images/header_logo.png' %}" alt="header_logo.png"></a></div>
+                            <button type="button" class="close" data-dismiss="modal"><img src="{% static 'public/images/modal_close.png' %}" alt="modal_close.png"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-body_header">
+                                <h3 class="modal-title">CONTACT US</h3>
+                                <p>For sales, leasing, pricing information, or just to say ‘Hi’, drop us a line.</p>
+                            </div>
+                            <div class="row modal-body_content">
+                                <div class="modal-form-left col-md-7 col-lg-7">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="Name" placeholder="Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="5" placeholder="Message" id="Message"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-5 col-lg-5 aboutUs">
+                                    <h3>Connect With Us:</h3>
+                                    <a href="mailto: Support@HiEfficiencyBar.com">Support@HiEfficiencyBar.com</a>
+                                    <a href="mailto: Sales@HiEfficiencyBar.com">Sales@HiEfficiencyBar.com</a>
+                                    <a href="mailto: Licensing@HiEfficiencyBar.com">Licensing@HiEfficiencyBar.com </a>
+                                    <a href="mailto: Franchising@HiEfficiencyBar.com">Franchising@HiEfficiencyBar.com</a>
+                                    <p class="phone">+1 216 702 4449</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% block header_banner%}
+        {% endblock %}
+        
+    </header>
+    {% block main%}
+    {% endblock %}
+    <footer class="footer">
+        <div class="footer_patented">
+            <div class="container">
+                <h3>NEED WE SAY MORE?</h3>
+                <h2>Patented Technology</h2>
+                <p class="content">‘Hi-Efficiency’ is the first and only robotic bar, with the strongest, most robust utility patent approved in the US. Imagined, designed, and built in the USA.</p>
+                <p class="number">Patent #US7577498B2</p>
+            </div>
+        </div>
+        <div class="footer_contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-lg-9 col-sm-9">
+                        <h3 class="footer_contact_title">Learn how to get started today!</h3>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-3">
+                        <a class="footer_contact_button" href="#" data-toggle="modal" data-target="#contact">CONTACT US</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <a class="footer_navbar_logo" href="#"><img src="{% static 'public/images/footer_logo.png' %}" alt="footer_logo.png"></a>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        <ul class="footer_navbar_menu">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">The Front Bar</a></li>
+                            <li><a href="#">The Back Bar</a></li>
+                            <li><a href="#">The Home Bar</a></li>
+                            <li><a href="#">Mobile Bar</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-lg-3 footer_navbar_about">
+                        <h3>ABOUT US</h3>
+                        <p>Cleveland’s most innovative small business, making your bartending daydreams reality</p>
+                    </div>
+                    <div class="col-md-3 col-lg-3 footer_navbar_social">
+                        <h3>STAY CONNECTED</h3>
+                        <div>
+                            <a href="#"><img src="{% static 'public/images/twitter-icon.png' %}" alt="twitter-icon.png"></a>
+                            <a href="#"><img src="{% static 'public/images/FacebookWhiteIcon.png' %}" alt="FacebookWhiteIcon.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_copyRight">
+            © 2018 Hi-Efficiency, Inc. All Rights Reserved.
+        </div>
+    </footer>
+    <script src="{% static 'public/template/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'public/template/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'public/js/jquery.touchSwipe.min.js' %}"></script>
+    <script src="{% static 'public/js/main.js' %}"></script>
+</body>
+</html>

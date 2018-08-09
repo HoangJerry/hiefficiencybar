@@ -1,0 +1,56 @@
+<!-- <div class="" style="margin-bottom : 15px;">
+    <a class="btn btn-primary" href="#/history/create" style="background: #209e91; border-color: #209e91;">Create</a>
+</div> -->
+
+<div ba-panel="" ba-panel-title="Robot Histories" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="text-align : left;">Creation Date</th>
+                    <th class="text_align_center">Status</th>
+                    <th class="text_align_center">Machine</th>
+                    <th class="text_align_center">Ingredient</th>
+                    <th class="text_align_center">Place Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listData" class="ng-scope">
+                    <td class="ng-binding" style="text-align : left;">
+                        <!-- <a href="#/robot/history/detail/{{item.id}}">{{item.creation_date | date:'MM/dd/yyyy'}}</a> -->
+                        <span>{{item.creation_date | date:'MM/dd/yyyy'}}</span>
+                    </td>
+                    <td class="ng-binding align-items-center text_align_center">
+                        <!-- <div class="_status text_align_center">
+                            <ba-switcher switcher-style="success" switcher-value="item.status" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div> -->
+
+                        <button style="margin : 5px auto; min-width : 100px;" ng-if="item.status" type="button" class="btn btn-success btn-with-icon">
+                            <i class="fa fa-sign-in-alt" style="margin-right : 7px;"></i>Import</button>
+                        <button style="margin : 5px auto; min-width : 100px;" ng-if="!item.status" type="button" class="btn btn-danger btn-with-icon">
+                            <i class="fa fa-sign-out-alt" style="margin-right : 7px;"></i>Export</button>
+                    </td>
+                    <td class="ng-binding text_align_center">
+                        <span ng-if="item.machine">Robot - {{item.machine}}</span>
+                    </td>
+                    <td class="ng-binding text_align_center">
+                        <span>{{item.ingredient}}</span>
+                    </td>
+                    <td class="ng-binding text_align_center">
+                        <span>{{ item.place_number }}</span>
+                    </td>
+                    <td class="ng-binding" style="width: 30px; text-align : center;">
+                        <a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+                            <i class="ion-android-delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div ba-panel="" ba-panel-title="Detail Ingredient Types" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="detail.name" ng-change="changeInfo('name', detail.name)"
+                    required>
+            </div>
+            <button ng-disabled="form.$invalid" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+        </form>
+    </div>
+</div>

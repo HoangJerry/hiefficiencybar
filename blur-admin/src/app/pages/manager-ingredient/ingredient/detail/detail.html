@@ -1,0 +1,117 @@
+<div style="overflow: hidden; margin-bottom: 15px;">
+    <div class="pull-right" style="display: inline-block;">
+        <a class="btn btn-success pull-right" href="" ng-click="openImport(detail)" >
+            <i class="fa fa-sign-in-alt"></i> Import
+        </a>
+        <a class="btn btn-success pull-right" href="" style="margin-right: 15px;" ng-click="openExport(detail)" >
+            <i class="fa fa-sign-out-alt"></i> Export
+        </a>
+    </div>
+</div>
+
+</div>
+
+<div ba-panel="" ba-panel-title="Detail Ingredient" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+
+                <select class="form-control" name="status" ng-model="detail.status" ng-change="changeInfo('status', detail.status)">
+                    <option class="form-control" value="0">ON</option>
+                    <option class="form-control" value="10">OFF</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Type</label>
+
+                <select class="form-control" name="status" ng-model="detail.type" ng-change="changeInfo('type', detail.type)" required>
+                    <option ng-repeat="item in types" class="form-control" ng-value="item.id">{{item.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                    <label style="color : #fff; font-weight : bold;" for="">Type By</label>
+    
+                    <div ng-class=" {'row' : isAddElement.type} ">
+                        <div ng-class=" {'col-md-12' : isAddElement.type} ">
+                            <select class="form-control" name="status" ng-model="detail.type_search" ng-change="changeInfo('type_search', detail.type_search)">
+                                <option class="form-control" value="0">Basics</option>
+                                <option class="form-control" value="10">Spirits</option>
+                                <option class="form-control" value="20">Liquers</option>
+                                <option class="form-control" value="30">Mixers</option>
+                                <option class="form-control" value="40">Other</option>
+                                <option class="form-control" value="50">Fruits</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="detail.name" ng-change="changeInfo('name', detail.name)"
+                required>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Price</label>
+                <input class="form-control" type="number" name="price" placeholder="Price" ng-model="detail.price" ng-change="changeInfo('price', detail.price)"
+                >
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Background Color</label>
+                <input colorpicker="rgb" type="text" ng-model="detail.background_color" class="form-control" name="background_color" placeholder="Background color" style="background-color: {{detail.background_color}};" ng-change="changeInfo('background_color', detail.background_color)"/>
+            </div>
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Bottel in storage</label>
+                <input class="form-control" type="number" name="bottles" placeholder="Bottles" ng-model="detail.bottles" ng-change="changeInfo('bottles', detail.bottles)"
+                disabled>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Quantity in Bottle in mL</label>
+                <input class="form-control" type="number" name="quanlity_of_bottle" placeholder="Quanlity of bottle" ng-model="detail.quanlity_of_bottle"
+                ng-change="changeInfo('quanlity_of_bottle', detail.quanlity_of_bottle)" >
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Brand</label>
+
+                <select ng-disabled="isDisableBrand" class="form-control" name="brand" ng-model="detail.brand" ng-change="changeInfo('brand', detail.brand)"
+                required>
+                <option ng-repeat="item in brands" class="form-control" value="{{item.id}}">{{item.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                <!-- <div class="form-group" ng-show="isDisable">
+                            <a href="{{detail.image}}">{{detail.image}}</a>
+                        </div>
+                        <input type='file' id="uploadFile" class="form-control" ng-model="detail.image" onchange="angular.element(this).scope().imageUpload(event)"
+                        required /> -->
+                        <div class="">
+                            <div class="userpic">
+                                <div ng-show="isChangeImage" class="userpic-wrapper">
+                                    <img style="width: 100% !important;" src="{{ detail.image }}" ng-click="uploadPicture()">
+                                </div>
+                                <div ng-show="!isChangeImage" class="userpic-wrapper">
+                                    <img style="width: 100% !important;" src="{{ image }}" ng-click="uploadPicture()">
+                                </div>
+                                <i ng-show="!isChangeImage" class="ion-ios-close-outline" ng-click="removePicture('image')" ng-if="!noPicture"></i>
+                                <a href class="change-userpic" ng-click="uploadPicture('image')">Change Image</a>
+
+                                <input type='file' id="uploadImage" ng-show="false" ng-model-instant onchange="angular.element(this).scope().imageUpload(event)"
+                                />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button ng-disabled="form.$invalid" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+                </form>
+            </div>
+        </div>

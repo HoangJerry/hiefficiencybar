@@ -1,0 +1,53 @@
+<div ba-panel="" ba-panel-title="Create Separate Glass" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="glass.name" ng-change="changeInfo('name', glass.name)"
+                    required>
+            </div>
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                
+                <div class="">
+                    <div class="userpic">
+                        <div ng-show="isChangeImage" class="userpic-wrapper">
+                            <img style="width: 100% !important;" src="{{ glass.image }}" ng-click="uploadPicture()">
+                        </div>
+                        <div ng-show="!isChangeImage" class="userpic-wrapper">
+                            <img style="width: 100% !important;" src="{{ image }}" ng-click="uploadPicture()">
+                        </div>
+                        <i ng-show="!isChangeImage" class="ion-ios-close-outline" ng-click="removePicture('image')" ng-if="!noPicture"></i>
+                        <a href class="change-userpic" ng-click="uploadPicture('image')">Change Image</a>
+
+                        <input type='file' id="uploadImage" ng-show="false" ng-model-instant onchange="angular.element(this).scope().imageUpload(event)"
+                        />
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Size</label>
+                <input class="form-control" type="number" name="size" placeholder="Size" ng-model="glass.size" ng-change="changeInfo('size', glass.size)"
+                    required>
+            </div>
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+
+                <select class="form-control" name="status" ng-model="glass.status" ng-change="changeInfo('status', glass.status)" required>
+                    <option class="form-control" value="0">ON</option>
+                    <option class="form-control" value="10">OFF</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Unit</label>
+
+                <select class="form-control" name="unit" ng-model="glass.unit" ng-change="changeInfo('unit', glass.unit)" required>
+                    <option class="form-control" value="0">mL</option>
+                    <option class="form-control" value="10">oz</option>
+                </select>
+            </div>
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+        </form>
+    </div>
+</div>

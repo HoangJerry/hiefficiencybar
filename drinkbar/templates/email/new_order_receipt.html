@@ -1,0 +1,574 @@
+{% load staticfiles %}
+{% load mathfilters %}
+{% load templatetag_edition %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css" media="screen">
+		@font-face {
+		  font-family: 'HelveticaNeueBold' !important;
+		  src: url({% static 'email/receipt/fonts/HelveticaNeueBold.woff' %}) format('woff'),
+		       url({% static 'email/receipt/fonts/HelveticaNeueBold.ttf' %}) format('truetype'),
+		       url({% static 'email/receipt/fonts/HelveticaNeueBold.svg#HelveticaNeueBold' %}) format('svg') !important;
+		  font-weight: normal !important;
+		  font-style: normal !important;
+		}
+
+		@font-face {
+		  font-family: 'HelveticaNeueMedium' !important;
+		  src: url({% static 'email/receipt/fonts/HelveticaNeueMedium.woff' %}) format('woff'),
+		       url({% static 'email/receipt/fonts/HelveticaNeueMedium.ttf' %}) format('truetype'),
+		       url({% static 'email/receipt/fonts/HelveticaNeueMedium.svg#HelveticaNeueMedium' %}) format('svg') !important;
+		  font-weight: normal !important;
+		  font-style: normal !important;
+		}
+		body{
+			font-family: 'HelveticaNeueMedium' !important;
+			font-weight: normal !important;
+			margin: 0 !important;
+		}
+		.wrapper{
+			max-width: 600px !important;
+			margin: 0 auto !important;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ededee+0,ededee+35,dedfe0+69,7c7e80+100 */
+			background: #ededee !important; /* Old browsers */
+			background: -moz-linear-gradient(left, #ededee 0%, #ededee 35%, #dedfe0 69%, #7c7e80 100%) !important; /* FF3.6-15 */
+			background: -webkit-linear-gradient(left, #ededee 0%,#ededee 35%,#dedfe0 69%,#7c7e80 100%) !important; /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right, #ededee 0%,#ededee 35%,#dedfe0 69%,#7c7e80 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededee', endColorstr='#7c7e80',GradientType=1 ) !important; /* IE6-9 */
+			overflow: hidden !important;
+		}
+		/*------headerContainer------*/
+		.headerContainer{
+			width:100% !important;
+		}
+		.textLogo{
+			background: url({% static 'email/receipt/images/bg-hd.png' %}) no-repeat center top !important;
+			background-size: 100% !important;
+			padding: 16% 0 3% 19% !important;
+		}
+		.textLogo h3{
+			font-size: 12px !important;
+			margin: 0 !important;
+			color: #000000 !important;
+			line-height: 8px !important;
+			margin-bottom: -5px !important;
+		}
+		.textLogo a{
+			display: inline-block !important;
+			text-decoration: none !important;
+			font-size: 10px !important;
+			margin: 0 !important;
+			font-weight:  500 !important;
+			color: #000000 !important;
+			line-height: 12px !important;
+		}
+		.cnt-hdtext{
+			overflow: hidden !important;
+			padding: 20px 25px 0 !important;
+		}
+		.textStever{
+			width: 48% !important;
+			float: left !important;
+			/*background: url({% static 'email/receipt/images/bg-sever.png' %}) no-repeat center top !important;*/
+			background-color: #d1d2d3 !important;
+			background-size: 100% !important;
+			/*padding: 1% 0 1% !important;*/
+			height: 70px !important;
+			border-radius: 70px;
+		    overflow: hidden !important;
+		}
+		.textStever .avatar{
+			width: 70px;
+		    height: 70px;
+		    display: inline-block;
+		    margin: 0;
+		    background-color:  rebeccapurple;
+		    border-radius: 50%;
+		    overflow: hidden;
+		}
+		.textStever .fullName{
+		    display:  inline-block !important;
+		    vertical-align: top !important;
+		    width: calc(100% - 100px) !important;
+		    line-height: 70px !important;
+		}
+
+		.textStever h3{
+			font-size: 20px !important;
+			display:  inline-block !important;
+			font-family: 'HelveticaNeueBold' !important;
+			color: #000000 !important;
+			margin: 0 !important; 
+			line-height: 18px !important;
+			vertical-align: middle !important;
+		}
+		.textStever h3 span{
+			font-size: 13px !important;
+			font-family: 'HelveticaNeueMedium' !important;
+		}
+		.hdroboto{
+			width: 50% !important;
+			float: right !important;
+		}
+		.textRoboto-title{
+			width: 83% !important;
+			float:  right !important;
+			border-radius: 10px !important;
+			padding: 0px 15px !important;
+			background: #263e71 !important;
+		}
+		.textRoboto-title table tr td{
+			width: 30% !important;
+			padding-right: 3.33% !important;
+			color: #fff !important;
+			font-size: 10px !important;
+			text-transform: uppercase !important;
+			letter-spacing: 1px !important;
+		}
+		.textRoboto{
+			width: 96% !important;
+			float: right !important;
+			right: 27px !important;
+		}
+		.textRoboto table tr td{
+			text-align: center !important;
+			font-size: 10px !important;
+			text-transform: uppercase !important;
+		}
+		.textRoboto table tr td span{
+			font-size: 27px !important;
+		}
+		.textTitleTab{
+			width: 88% !important;
+			background: #2597ab !important;
+			padding: 16px 20px !important;
+			margin: 0 auto !important;
+			border-radius: 18px !important;
+		}
+		.textTitleTab table tr td{
+			width: 1% !important;
+			/* text-align: center !important; */
+			color: #fff !important;
+			font-size: 9px !important;
+			font-family: 'HelveticaNeueBold' !important;
+			text-transform: uppercase !important;
+			text-align: center !important;
+		}
+		/*contentContainer*/
+		.contentContainer{
+			width: 100% !important;
+			overflow: hidden !important;
+		}
+		.contentTable{
+			width: 84% !important;
+			margin:  0 auto !important;
+			border-radius: 0 0 10px 10px !important;
+			overflow: hidden !important;
+			background: #fff !important;
+			border: 1px solid #000 !important;
+			border-top: 0 !important;
+			padding: 0 15px 100px !important;
+		}
+		.contentTable table tr td{
+			text-align: center !important;
+			color: #000 !important;
+			font-size: 12px !important;
+		}
+		.contentTable table tr td.tab-center{
+			text-align: left !important;
+		}
+		.contentTable table tr{
+			border-bottom: 1px solid #000 !important;
+		}
+		/* footer */
+		.footerContainer{
+			width:100% !important;
+			background: url({% static 'email/receipt/images/bg2.png' %}) no-repeat center top -12px !important;
+			background-size: 88% !important;
+			position: relative !important;
+			min-height: 227px !important;
+		}
+		.footerContainer .qr_code{
+			margin-top: 73px !important;
+		    width: 97px !important;
+		    padding-bottom: 97px !important;
+		    height: 0 !important;
+		    margin-left: 225px !important;
+		    background:  rebeccapurple !important;
+		    display: inline-block !important;
+		    overflow: hidden !important;
+		}
+		.footerContainer p{
+			font-size: 15px !important;
+			margin: 0 auto !important;
+			display:  inline-block !important;
+			color: #000 !important;
+		}
+		.footerContainer p.share_with_friend{
+			color: white !important; 
+			font-size: 11px !important;
+		}
+		.footerContainer .numberContainer{
+			line-height: 1.85 !important;
+		    width: 26.33% !important;
+		    margin: 0 auto !important; 
+		    /*margin-right: 5.5% !important;*/
+		    vertical-align: top;
+		    display: inline-block;
+		    margin-left: 11.53%!important;
+		}
+		.footerContainer .numberContainer .number{
+			display: flex!important;
+		    background-color: #dbc26c;
+		    margin-bottom: 2px;
+		}
+		.textSub {
+			width: 100% !important;
+			overflow: hidden !important;
+		}
+		.textTot {
+			width: 100% !important;
+			overflow: hidden !important;
+		}
+		.textTax {
+			width: 100% !important;
+			overflow: hidden !important;
+		}
+		.textSub p{
+			float: right !important;
+			padding: 4px 116px 0 0 !important;
+		}
+
+		.textTax p{
+			float: right !important;
+			padding: 7px 121px 0 0 !important;
+		}
+
+		.textTot p{
+			padding: 14px 115px 0 0 !important;
+			float: right !important;
+		}
+		.footerCopyContainer{
+			width: 100% !important;
+			padding: 10px 0 !important;
+			overflow: hidden !important;
+		}
+		.footerCopyContainer p{
+			text-align: center !important;
+			font-size: 10px !important;
+			color: #000 !important;
+			font-family: 'HelveticaNeueBold' !important;
+			margin: 0 !important;
+		}
+		.footerCopyContainer p a{
+			color: #000 !important;
+		}
+
+		@media (max-width: 550px){
+			.textLogo {
+			    padding: 15% 0 4% 19% !important;
+			}
+			.headerContainer{
+				min-height: 244px !important;
+			}
+			.textLogo h3 {
+		    	font-size: 10px !important;
+		    	margin-bottom: -2px !important;
+			}
+			.textLogo a {
+			    font-size: 9px !important;
+			}
+			.textStever h3 {
+			    font-size: 15px !important;
+			    line-height: 16px !important;
+			}
+			.textStever h3 span {
+			    font-size: 10px !important;
+			}
+			.textRoboto {
+			    margin-top: 1px !important;
+			    padding: 0 !important;
+			}
+			.textRoboto table tr td{
+				font-size: 8px !important;
+			}
+			.textRoboto table tr td span {
+			    font-size: 16px !important;
+			}
+			.footerContainer {
+			    background: url({% static 'email/receipt/images/bg2.png' %}) no-repeat center top -6px !important;
+			    background-size: 88% !important;
+			    min-height: 173px !important;
+			}
+			.footerContainer .qr_code{
+				margin-top: 12.25% !important;
+			    width: 16.16% !important;
+			    padding-bottom: 16.16% !important;
+			    height: 0 !important;
+			    margin-left: 37.5% !important;
+			    background:  rebeccapurple !important;
+			    display: inline-block !important;
+			    overflow: hidden !important;
+			}
+			.footerContainer p{
+				font-size: 8px !important;
+			}
+			.footerContainer p.share_with_friend{
+				font-size: 6px !important;
+			}
+			.textSub p {
+			   	width: 69px !important;
+		    	padding: 6px 60px 0 0 !important;
+			}
+			.textTax p {
+			    width: 69px !important;
+			    padding: 14px 59px 0 0 !important;
+			}
+			.textTot p {
+			    width: 69px !important;
+			    padding: 9px 60px 0 0 !important;
+			}
+		}
+		@media (max-width: 450px){
+			.cnt-hdtext {
+			    overflow: hidden !important;
+			    padding: 20px 9px 0 !important;
+			}
+			.headerContainer{
+				min-height: 206px !important;
+			}
+			.textStever{
+				width: 50% !important;
+			}
+			.textStever h3{
+			    line-height: 13px !important;
+			  	font-size: 15px !important;
+			}
+			.hdroboto{
+				width: 50% !important;
+			}
+			.textRoboto-title table tr td{
+				font-size: 8px !important;
+			}
+			.textRoboto table tr td span {
+			    font-size: 13px !important;
+			}
+			.textSub p {
+			    padding: 0px 20px 0 0 !important;
+			}
+			.textTax p {
+			    padding: 4px 20px 0 0 !important;
+			}
+			.textTot p {
+			    padding: 5px 20px 0 0 !important;
+			}
+		}
+		@media (max-width: 384px){
+			.textTitleTab{
+				padding: 16px 10px !important;
+			}
+			.contentTable{
+				width: 78% !important;
+			}
+			.textStever h3{
+				font-size: 11px !important;
+				line-height: 12px !important;
+			}
+			.textStever h3 span {
+			    font-size: 9px !important;
+			}
+		}
+		@media (max-width: 345px){
+			.headerContainer {
+			    min-height: 154px !important;
+			}
+			.textRoboto-title table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td {
+			    font-size: 8px !important;
+			}
+			
+			
+		}
+		@media (max-width: 330px){
+			.headerContainer {
+			    min-height: 140px !important;
+			}
+			.footerContainer {
+			    background: url({% static 'email/receipt/images/bg2.png' %}) no-repeat center top -7px !important;
+			    min-height: 100px !important;
+			    background-size: 38.1% !important;
+			}
+			.textSub p{
+			    padding: 1px 10px 0 0 !important;
+			}
+			.textTax p {
+			    padding: 1px 10px 0 0 !important;
+			}
+			.textTot p {
+			    padding: 1px 10px 0 0 !important;
+			}
+			.textRoboto-title table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td span {
+			    font-size: 12px !important;
+			}
+		}
+		@media (max-width: 310px){
+			.headerContainer {
+			    min-height: 138px !important;
+			}
+			.textRoboto-title table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td span {
+			    font-size: 12px !important;
+			}
+		}
+		@media (max-width: 290px){
+
+			.textLogo h3 {
+			    font-size: 9px !important;
+			    margin-bottom: -4px !important;
+			}
+			.textLogo a {
+			    font-size: 8px !important;
+			}
+			.textRoboto-title table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td {
+			    font-size: 6px !important;
+			}
+			.textRoboto table tr td span {
+			    font-size: 12px !important;
+			}
+		
+			.textSub p {
+			    padding: 0px 10px 0 0 !important;
+			}
+			.textTax p {
+			    padding: 0px 10px 0 0 !important;
+			}
+			.textTot p {
+			    padding: 0px 10px 0 0 !important;
+			}
+		}
+	</style>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="headerContainer">
+		<div class="textLogo">
+			<h3>The First and Only Robotic Bar</h3>
+			<a href="http://www.hiefficiencybar.com">www.hiefficiencybar.com</a>
+		</div>
+		<div class="cnt-hdtext">
+			<div class="textStever">
+				<div class="avatar"><img src="http://hiefficiencybar.com/media/{{ user.avatar }}" alt="" width="70px"></div>
+				<div class="fullName">
+					<h3><span>Serving:</span> <br>{{user.full_name}}</h3>
+				</div>
+			</div>
+			<div class="hdroboto">
+				<div class="textRoboto-title">
+					<table>
+						<tr>
+							<td colspan="2">DATE: {{order.creation_date|date:"M d, Y"}}</td>
+							<td>
+							TIME: {{order.creation_date|date:"f"}}</td>
+						</tr>
+					</table>
+				</div>
+				<div class="textRoboto">
+					<table style="
+					    width: 96% !important;
+					    margin:  0 auto !important;
+					">
+						<tr>
+							<td>ROBOT</td>
+							<td>PICKUP @ SLIDE</td>
+							<td>EST. WAIT TIME</td>
+						</tr>
+						<tr>
+							<td><span>{{order.robot.id}}</span></td>
+							<td><span>{{order.tray_number}}</span></td>
+							<td><span>{{order.total_time|parseToTime}}</span></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="textTitleTab">
+			<table>
+				<tr>
+					<td>OTY</td>
+					<td>DESCRIPTION</td>
+					<td>PRICE</td>
+					<td>INGREDIENTS</td>
+					<td>AMOUNT</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="contentContainer">
+		<div class="contentTable">
+			<table width="100%" >
+				{% for tab in order.products.all %}
+				<tr>
+					<td width="15%">{{tab.quantity}}</td>
+					<td width="25%"><img style="width: 40px;" src="http://hiefficiencybar.com/media/{{tab.drink.image}}"> <br>{{tab.drink.name}}</td>
+					<td width="15%">{{tab.amount | floatformat:2}}</td>
+					<td width="30%">
+					{% for ingre in tab.drink.ingredients.all %}
+						{{ ingre.ingredient.name }}<br>
+					{% endfor %}
+					</td>
+					<td width="15%">{{ tab.amount | div:tab.quantity | floatformat:2}}</td>
+				</tr>
+				<tr>
+					<td colspan="5" style="border-bottom:  1px solid;"></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+	<!-- footer -->
+	<div class="footerContainer">
+		<div class="qr_code">
+			<img src="{{order.qr_code}}" alt="qr_code" style="width: 100%;
+">
+		</div>
+		<div class="numberContainer">
+			<div class="number"><p>${{ order.amount_without_fee | floatformat:2 }}</p></div>
+			<div class="number"><p>${{ order.amount | sub:order.amount_without_fee | floatformat:2}}</p></div>
+			<div class="number"><p>${{ order.amount | floatformat:2 }}</p></div>
+			<div class="number" style="
+					margin-top:27.35%; 
+					background-color: #3097ab;
+					line-height: 25px;
+					">
+				<p class="share_with_friend">
+					SHARE WITH FRIEND
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="footerCopyContainer">
+		<p>Contact Us at <a href="mailto:Service@HiEfficiencyBar.com">Service@HiEfficiencyBar.com</a> for more information</p>
+	</div>
+</div>
+</body>
+</html>

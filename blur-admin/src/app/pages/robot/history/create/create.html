@@ -1,0 +1,36 @@
+<div ba-panel="" ba-panel-title="Create Separate data_create" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+                <select class="form-control" name="status" ng-model="data_create.status" ng-change="changeInfo('status', data_create.status)">
+                    <option class="form-control" ng-value="0">Import to storage</option>
+                    <option class="form-control" ng-value="10">Export to machine</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Machine</label>
+                <select class="form-control" name="status" ng-model="data_create.robot" ng-change="changeInfo('robot', data_create.robot)">
+                    <option ng-repeat="item in list_robot" class="form-control" value="{{item.id}}">{{item.link}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Ingredient</label>
+                <select class="form-control" name="status" ng-model="data_create.ingredient" ng-change="changeInfo('ingredient', data_create.ingredient)">
+                    <option ng-repeat="item in list_ingredient" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Quantity</label>
+                <input type='number' min="0" class="form-control" ng-model="data_create.quantity" ng-change="changeInfo('quantity', data_create.quantity)"
+                />
+            </div>
+
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="create()">Create</button>
+        </form>
+    </div>
+</div>

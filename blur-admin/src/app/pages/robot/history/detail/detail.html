@@ -1,0 +1,35 @@
+<div ba-panel="" ba-panel-title="Detail History / {{detail.name}}" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+                <select class="form-control" name="status" ng-model="detail.status" ng-change="changeInfo('status', detail.status)">
+                    <option class="form-control" ng-value="0">Import to storage</option>
+                    <option class="form-control" ng-value="10">Export to machine</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Machine</label>
+                <select class="form-control" name="status" ng-model="detail.robot" ng-change="changeInfo('robot', detail.robot)">
+                    <option ng-repeat="item in list_robot" class="form-control" value="{{item.id}}">{{item.link}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Ingredient</label>
+                <select class="form-control" name="status" ng-model="detail.ingredient" ng-change="changeInfo('ingredient', detail.ingredient)">
+                    <option ng-repeat="item in list_ingredient" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Quantity</label>
+                <input type='number' min="0" class="form-control" ng-model="detail.quantity" ng-change="changeInfo('quantity', detail.quantity)"
+                />
+            </div>
+
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+        </form>
+    </div>
+</div>

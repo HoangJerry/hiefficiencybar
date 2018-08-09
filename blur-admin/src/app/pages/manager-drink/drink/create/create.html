@@ -1,0 +1,193 @@
+<div ba-panel="" ba-panel-title="Create Drink" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="data_create.name" ng-change="changeInfo('name', data_create.name)"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Category</label>
+                <!-- <multiselect class="input-xlarge" multiple="true" ng-model="data_create.category" options="item.link for item in list_categories"
+                    change="selected()"></multiselect> -->
+                <!-- <div class="form-control _select_multi" ng-dropdown-multiselect="" options="list_categories" selected-model="selected_baselines" extra-settings="selected_baseline_settings"
+                translation-texts="selected_baselines_customTexts"></div> -->
+
+                <!-- <select class="form-control" ng-model="data_create.category" multiple style="height : 200px;">
+                    <option ng-repeat="item in list_categories" value="{{ item.id }}">{{ item.link }}</option>
+                </select> -->
+
+                <div class="form-control _select_category" uib-dropdown on-toggle="toggled(open)">
+                    <a class="_btn_select_cate" href id="simple-dropdown" uib-dropdown-toggle>
+                        <span ng-if="categories.length === 0">Select Category</span>
+                        <span class="_item_select" ng-if="categories.length > 0" ng-repeat="elm in categories">{{ elm.link }}</span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li role="menuitem" ng-repeat="item in list_categories">
+                            <a ng-click="selectCategory(item)" class="check_{{item.id}}" style="margin : 0;" ng-style="item.selected && {'font-weight': 'bold'}">
+                                {{item.link}}
+                                <i class="fa fa-check _check_icon pull-right" style="margin-right : 5px; color: green; display : none;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                <input type='file' id="uploadFile" class="form-control" ng-model="data_create.image" onchange="angular.element(this).scope().imageUpload(event, 'image')"
+                />
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image Background</label>
+                <input type='file' id="uploadFile" class="form-control" ng-model="data_create.image_background" onchange="angular.element(this).scope().imageUpload(event, 'image_background')"
+                />
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-inline custom-checkbox nowrap">
+                    <input type="checkbox" id="inlineCheckbox01" name="is_fit_price" ng-change="changeInfo('is_fit_price', data_create.is_fit_price)" ng-model="data_create.is_fit_price"> 
+                    <span>Fixed price</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Price</label>
+                <input ng-disabled="isDisablePrice" class="form-control" type="number" min="0" name="price" placeholder="Price" ng-model="data_create.price" ng-change="changeInfo('price', data_create.price)"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Prep</label>
+
+                <select class="form-control" name="prep" ng-model="data_create.prep" ng-change="changeInfo('prep', data_create.prep)">
+                    <option ng-selected="data_create.prep === 0" value="0">Shake</option>
+                    <option ng-selected="data_create.prep === 10" value="10">Filter</option>
+                    <option ng-selected="data_create.prep === 20" value="20">Stir</option>
+                    <option ng-selected="data_create.prep === 30" value="30">Muddle</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Glass</label>
+
+                <select class="form-control" name="glass" ng-model="data_create.glass" ng-change="changeInfo('glass', data_create.glass)">
+                    <option ng-repeat="item in list_glass" class="form-control" value="{{item.id}}">{{item.name}} - {{item.size}} </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Keyword</label>
+                <input class="form-control" type="text" name="key_word" placeholder="Keyword" ng-model="data_create.key_word" ng-change="changeInfo('key_word', data_create.key_word)"
+                    required>
+            </div>
+
+            <!-- <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Estimate time(s)</label>
+                <input class="form-control" type="number" min="0" name="estimate_time" placeholder="Estimate time" ng-model="data_create.estimate_time"
+                    ng-change="changeInfo('estimate_time', data_create.estimate_time)" required>
+            </div> -->
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Estimate time</label>
+                <div class="_est">
+                    <div class="_min">
+                        <input type="number" name="minute" min="0" max="59" ng-model="est.min"> (m)
+                    </div>
+                    <div class="_sec">
+                        <input type="number" name="seconds" min="0" max="59" ng-model="est.sec"> (s)
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="checkbox-inline custom-checkbox nowrap">
+                    <input type="checkbox" ng-model="data_create.is_have_ice" ng-click="changeInfo('is_have_ice', data_create.is_have_ice)">
+                    <span>Is have ice</span>
+                </label>
+            </div>
+
+            <!-- Ingredient -->
+            <div class="drink_ingredient">
+                <h3 class="with-line ng-scope">Ingredient</h3>
+
+                <div class="add-row-editable-table">
+                    <button class="btn btn-primary" data-toggle="modal" ng-click="openCreateIngredient('md')">
+                        <i class="ion-plus-round"></i> Add Ingredient</button>
+                </div>
+
+                <table ng-if="ingredients.length > 0" class="table table-striped" st-table="smartTableData">
+                    <thead>
+                        <tr class="sortable ">
+                            <th class="" style="text-align : left;">Ingredient</th>
+                            <th>Ratio</th>
+                            <th>Unit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ing in ingredients" class="ng-scope">
+                            <td class="ng-binding" style="text-align : left;">
+                                {{ing.ingredient.name}}
+                            </td>
+                            <td class="ng-binding">
+                                {{ ing.ratio }}
+                            </td>
+                            <td class="ng-binding">
+                                {{ ing.unit_view }}
+                            </td>
+                            <td class="ng-binding" style="width: 30px; text-align : center;">
+                                <a href="" data-toggle="modal" ng-click="confirmDelete(ing)" style="color : #e85555;">
+                                    <i class="ion-android-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Garnish -->
+            <div class="drink_ingredient">
+                <h3 class="with-line ng-scope">Garnish</h3>
+
+                <div class="add-row-editable-table">
+                    <button class="btn btn-primary" data-toggle="modal" ng-click="openCreateGarnish('md')">
+                        <i class="ion-plus-round"></i> Add Garnish</button>
+                </div>
+
+                <table ng-if="garnishs.length > 0" class="table table-striped" st-table="smartTableData">
+                    <thead>
+                        <tr class="sortable ">
+                            <th class="" style="text-align : left;">Garnish</th>
+                            <th>Ratio</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="gar in garnishs" class="ng-scope">
+                            <td class="ng-binding" style="text-align : left;">
+                                {{gar.garnish.name}}
+                            </td>
+                            <td class="ng-binding">
+                                {{ gar.ratio }}
+                            </td>
+                            <td class="ng-binding" style="width: 30px; text-align : center;">
+                                <a href="" data-toggle="modal" ng-click="confirmDeleteGarnish(gar)" style="color : #e85555;">
+                                    <i class="ion-android-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <hr>
+                <button ng-disabled="form.$invalid" type="button" class="btn btn-primary" ng-click="create()">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

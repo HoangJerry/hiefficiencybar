@@ -1,0 +1,20 @@
+facepy
+asgi_redis
+daphne==1.4.1
+channels==1.1.8
+channels-api==0.4.0
+django==1.11
+djangorestframework
+django_cleanup
+django-categories
+django-cors-headers
+django-import-export
+django-redis
+facebook-sdk
+python-twitter
+-e git+https://github.com/mobolic/facebook-sdk.git#egg=facebook-sdk
+mysqlclient
+Pillow
+stripe
+requests-futures
+django-mathfilters

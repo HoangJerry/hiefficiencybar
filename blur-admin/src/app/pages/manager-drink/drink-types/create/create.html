@@ -1,0 +1,17 @@
+<div ba-panel="" ba-panel-title="Create Drink Types" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="data_create.name" ng-change="changeInfo('name', data_create.name)"
+                    required>
+            </div>
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                <input type='file' id="uploadFile" class="form-control" ng-model="data_create.file" onchange="angular.element(this).scope().imageUpload(event)"
+                     />
+            </div>
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="create()">Create</button>
+        </form>
+    </div>
+</div>

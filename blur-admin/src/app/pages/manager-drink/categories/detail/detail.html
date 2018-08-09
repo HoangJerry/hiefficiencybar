@@ -1,0 +1,56 @@
+<div ba-panel="" ba-panel-title="Detail Category / {{detail.name}}" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="detail.name" ng-change="changeInfo('name', detail.name)"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Parent</label>
+                <select class="form-control" name="status" ng-model="detail.parent" ng-change="changeInfo('parent', detail.parent)">
+                    <option ng-repeat="item in list_categories" class="form-control" value="{{item.id}}">{{item.link}}</option>
+                </select>
+            </div>
+
+            <!-- <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                <div ng-if="isDisable" class="form-group">
+                    <a href="{{detail.image}}">{{detail.image}}</a>
+                </div>
+                <input type='file' id="uploadFile" class="form-control" ng-model="detail.file" onchange="angular.element(this).scope().imageUpload(event)"
+                />
+            </div> -->
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                <div class="">
+                    <div class="userpic">
+                        <div ng-show="isChangeAvatar" class="userpic-wrapper">
+                            <img style="width: 100% !important;" src="{{ detail.image }}" ng-click="uploadPicture()">
+                        </div>
+                        <div ng-show="!isChangeAvatar" class="userpic-wrapper">
+                            <img style="width: 100% !important;" src="{{ image }}" ng-click="uploadPicture('image')">
+                        </div>
+                        <i class="ion-ios-close-outline" ng-click="removePicture()" ng-if="!noPicture"></i>
+                        <a href class="change-userpic" ng-click="uploadPicture()">Change Image</a>
+
+                        <input type='file' id="uploadFile" ng-show="false" ng-model-instant onchange="angular.element(this).scope().imageUpload(event)"
+                        />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Active</label>
+                <div style="width: 100%; margin-top: 15px;">
+                    <ba-switcher switcher-style="success" switcher-value="detail.active" ng-click="changeInfo('active', detail.active)"></ba-switcher>
+                </div>
+            </div>
+
+            <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+        </form>
+    </div>
+</div>

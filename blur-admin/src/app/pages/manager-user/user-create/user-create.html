@@ -1,0 +1,23 @@
+<div ba-panel="" ba-panel-title="Create User" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label for="">Email</label>
+                <input class="form-control" type="email" name="email" placeholder="Email" ng-model="account.username" ng-change="changeInfo('username', account.username)"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input class="form-control" type="password" name="password" placeholder="Password" ng-model="account.password" ng-change="changeInfo('password', account.password)"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="">Confirm Password</label>
+                <input class="form-control" type="password" name="re_password" placeholder="Confirm Password" ng-model="account.re_password"
+                    ng-change="changeInfo('re_password', account.re_password)" required>
+            </div>
+            <button ng-disabled="form.$invalid || isDisable" type="button" class="btn btn-primary" ng-click="create()">Create</button>
+        </form>
+    </div>
+</div>
+

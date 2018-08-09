@@ -1,0 +1,109 @@
+/* For resolution 992 -1199 and above */
+$height-bar:400px;
+@media (max-width: 1199px){
+  /*open header*/
+  .header{
+    &_navbar{
+      &_menu{
+        .navbar-collapse{
+          ul.nav{
+            li {
+              margin-left: 16px;
+              a {
+                font-size: 14px;
+                line-height: 24.5px;
+              }
+            }
+            li.contact {
+              margin-right: 16px;
+              margin-left: 70px;
+            }
+          }
+        }
+      }
+    }
+    &_banner{
+      &_info{
+        h3 {
+          font-size: 53px;
+          line-height: 55px;
+        }
+        p {
+          font-size: 20px;
+          line-height: 27px;
+        }
+      }
+      &_avatar {
+        img {
+          width: 125%;
+        }
+      }
+    }
+  }
+  /*open Main*/
+  .main{
+    /*automation*/
+    &_automation{
+      &_title{
+        h3{
+          font-size: 51px;
+        }
+      }
+    }
+    /*Navbar*/
+    &_navbar{
+      .bar{
+        &_main{
+          a{
+            width: 83.83px;
+            height: 83.83px;
+          }
+        }
+        &_item {
+          &_title{
+            font-size: 35px;
+            padding-top: 181px;
+          }
+          &_content{
+            font-size: 18px;
+            line-height: 24px;
+            min-height: 88px;
+          }
+          &_padding{
+            padding-bottom: 348px;
+          }
+          &_button{
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    /*powerful*/
+    &_powerful{
+      height: 503px;
+      &_content h3 {
+        font-size: 45px;
+        line-height: 73px;
+      }
+    }
+  }
+  /*Close Main*/
+  /*open footer*/
+  .footer{
+    &_contact{
+      &_button{
+        font-size: 14px;
+      }
+    }
+    &_navbar{
+      &_menu{
+        li{
+          a{
+            line-height: 36px;
+          }
+        }
+      }
+    }
+  }
+  /*close footer*/
+}

@@ -1,0 +1,218 @@
+{% extends './base.html' %}
+{% load staticfiles %}
+{% block header_banner%}
+    <div class="header_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div class="header_banner_info">
+                        <h3>SAY 'HI' TO AUTOMATION 'EFFICIENCY'</h3>
+                        <p>The FIRST and ONLY patented libation delivery system designed and built specifically for your home or business</p>
+                        <div class="button">
+                            <a href="#worksHow">how it works</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="header_banner_avatar">
+                        <img src="{% static 'public/images/header_banner.png' %}" alt="banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_more">
+        <div class="container">
+            <a href="#">
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+{% block main%}
+<main class="main">
+        <div class="main_automation">
+            <div class="container">
+                <div class="row">
+                    <div class="main_automation_avatar">
+                        <img src="{% static 'public/images/main_automation_avatar.png' %}" alt="avatar">
+                    </div>
+                    <div class="main_automation_title">
+                        <h3>Automation Never Tasted So Good!</h3>
+                    </div>
+                    <div class="main_automation_content">
+                        <p>Hi-Efficiency is raising the bar with customized solutions to fit and meet your needs. The automated bar is designed for beer service along with mix drinks and non-alcoholic beverages. This one-of-a kind patented technology is designed to make your life a little easier.</p>
+                        <br>
+                        <span>We combine the art of cocktails with the experience of automation.</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="main_navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 bar_front bar">
+                        <div class="row bar_item">
+                            <div class="bar_main">
+                                <h3 class="bar_item_title">FRONT BAR</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">For Restaurants, Bar & Grills, Clubs, Pubs and more.</p>
+                                <span class="bar_item_padding"></span>
+                                <a class="" id="bar_icon_front" href="javascript:void(0);"></a>
+                            </div>
+                            <div class="bar_faster col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">80%</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Faster</p>
+                                <p class="bar_item_content">Our systems serve drinks 80% faster than your favorite mixologist.*</p>
+                                <a class="bar_item_button" href="{% url 'front-bar-page' %}" >LEARN MORE</a>
+                            </div>
+                            <div class="bar_ingredients col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">110</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Ingredients</p>
+                                <p class="bar_item_content">The capacity to create an endless combination of cocktails</p>
+                                <span>*on average</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 bar_back bar">
+                        <div class="row bar_item ">
+                            <div class="bar_main">
+                                <h3 class="bar_item_title">BACK BAR</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">For Hotels, Lounges, Casinos, Resorts and more.</p>
+                                <span class="bar_item_padding"></span>
+                                <a class=""  id="bar_icon_back" href="javascript:void(0);"></a>
+                            </div>
+                            <div class="bar_faster col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">80%</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Faster</p>
+                                <p class="bar_item_content">Our systems serve drinks 80% faster than your favorite mixologist.*</p>
+                                <a class="bar_item_button" href="{% url 'back-bar-page' %}" >LEARN MORE</a>
+                            </div>
+                            <div class="bar_ingredients col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">110</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Ingredients</p>
+                                <p class="bar_item_content">The capacity to create an endless combination of cocktails</p>
+                                <span>*on average</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 bar_home bar">
+                        <div class="row bar_item">
+                            <div class="bar_main">
+                                <h3 class="bar_item_title">HOME BAR</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">For Residential Homes or Private Clubs.</p>
+                                <span class="bar_item_padding"></span>
+                                <a class="" id="bar_icon_home" href="javascript:void(0);"></a>
+                            </div>
+                            <div class="bar_faster col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">80%</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Faster</p>
+                                <p class="bar_item_content">Our systems serve drinks 80% faster than your favorite mixologist.*</p>
+                                <a class="bar_item_button" href="{% url 'home-bar-page' %}" >LEARN MORE</a>
+                            </div>
+                            <div class="bar_ingredients col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">110</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Ingredients</p>
+                                <p class="bar_item_content">The capacity to create an endless combination of cocktails</p>
+                                <span>*on average</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 bar_mobile bar">
+                        <div class="row bar_item main_navbar_row">
+                            <div class="bar_main">
+                                <h3 class="bar_item_title">MOBILE BAR</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content"> </p>
+                                <span class="bar_item_padding"></span>
+                                <a class="" id="bar_icon_mobile" href="javascript:void(0);"></a>
+                            </div>
+                            <div class="bar_faster col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">80%</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Faster</p>
+                                <p class="bar_item_content">Our systems serve drinks 80% faster than your favorite mixologist.*</p>
+                                <a class="bar_item_button" href="{% url 'mobile-bar-page' %}" >LEARN MORE</a>
+                            </div>
+                            <div class="bar_ingredients col-sm-4 col-md-4 col-lg-4 col-xs-4">
+                                <h3 class="bar_item_title">110</h3>
+                                <div class="bar_item_hr"><hr></div>
+                                <p class="bar_item_content">Ingredients</p>
+                                <p class="bar_item_content">The capacity to create an endless combination of cocktails</p>
+                                <span>*on average</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_powerful">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12 col-sm-push-7">
+                        <div class="main_powerful_content">
+                            <h3>Powerful APP</h3>
+                            <p>Our innovative app combines an eye-catching, sleek design with the smoothest user experience available. Available for iOS and Android devices.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-lg-8 col-sm-7 col-xs-12 col-sm-pull-5">
+                        <div class="main_powerful_avatar">
+                            <img src="{% static 'public/images/main_powerful_avatar.png' %}" alt="main powerful avatar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_slider" id="worksHow">
+            <div class="container">
+                <h3 class="main_slider_title">How It Works</h3>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img class="item_avatar" src="{% static 'public/images/main_slider_1.png' %}" alt="Los Angeles">
+                            <img class="item_icon" src="{% static 'public/images/main_slider_11.png' %}" alt="Los Angeles">
+                            <h3 class="item_title">Order</h3>
+                            <p class="item_content">Select from tried and true, popular cocktails, or customize your own</p>
+                        </div>
+                        <div class="item">
+                            <img class="item_avatar" src="{% static 'public/images/main_slider_2.png' %}" alt="Los Angeles">
+                            <img class="item_icon" src="{% static 'public/images/main_slider_22.png' %}" alt="Los Angeles">
+                            <h3 class="item_title">Make</h3>
+                            <p class="item_content">Watch your drink move up in the queue, then marvel as it’s created before your eyes</p>
+                        </div>
+                        <div class="item">
+                            <img class="item_avatar" src="{% static 'public/images/main_slider_3.png' %}" alt="100%">
+                            <img class="item_icon" src="{% static 'public/images/main_slider_33.png' %}" alt="100%">
+                            <h3 class="item_title">Serve</h3>
+                            <p class="item_content">Order’s up! Scan your QR code to receive your libation</p>
+                        </div>
+                        <div class="item">
+                            <img class="item_avatar" src="{% static 'public/images/main_slider_4.png' %}" alt="100%">
+                            <img class="item_icon" src="{% static 'public/images/main_slider_44.png' %}" alt="100%">
+                            <h3 class="item_title">Enjoy!</h3>
+                            <p class="item_content">Relax and enjoy a cocktail made exactly the way you ordered it</p>
+                        </div>
+                    </div>
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+</main>
+{% endblock %}

@@ -1,0 +1,70 @@
+<div class="" style="margin-bottom : 15px; text-align : right;">
+    <a class="btn btn-default" href="#/robot/history/list" style="margin-left : 15px;"><i class="ion-loop"></i> History</a>
+    <a class="btn btn-default" href="" ng-click="openGraphic()" style="margin-left : 15px;"><i class="ion-grid"></i> Graphic</a>
+</div>
+
+
+<div ba-panel="" ba-panel-title="Detail Robot / {{detail.name}}" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Status</label>
+                <div style="width: 100%; margin-top: 15px;">
+                    <ba-switcher switcher-style="success" switcher-value="detail.status" ng-click="changeInfo('status', detail.status)"></ba-switcher>
+                </div>
+            </div>
+
+            <!-- Ingredient -->
+            <div class="drink_ingredient">
+                <h3 class="with-line ng-scope">Ingredient</h3>
+
+                <div class="add-row-editable-table">
+                    <button class="btn btn-primary" data-toggle="modal" ng-click="openCreateIngredient('md')">
+                        <i class="ion-plus-round"></i> Add Ingredient</button>
+                </div>
+
+                <table ng-if="detail.ingredients.length > 0" class="table table-striped" st-table="smartTableData">
+                    <thead>
+                        <tr class="sortable ">
+                            <th class="" style="text-align : left;">Ingredient</th>
+                            <th>last_ingredient</th>
+                            <th>place_number</th>
+                            <th>last_bottle</th>
+                            <th>remain_of_bottle</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="ing in detail.ingredients" class="ng-scope">
+                            <td class="ng-binding" style="text-align : left;">
+                                {{ing.ingredient.name}}
+                            </td>
+                            <td class="ng-binding">
+                                {{ ing.last_ingredient.name }}
+                            </td>
+                            <td class="ng-binding">
+                                {{ ing.place_number }}
+                            </td>
+                            <td class="ng-binding">
+                                {{ ing.last_bottle }}
+                            </td>
+                            <td class="ng-binding">
+                                {{ ing.remain_of_bottle }}
+                            </td>
+                            <td class="ng-binding" style="width: 30px; text-align : center;">
+                                <a href="" data-toggle="modal" ng-click="confirmDelete(ing)" style="color : #e85555;">
+                                    <i class="ion-android-delete"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align : center;">
+                <h3 class="with-line ng-scope"></h3>
+                <button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

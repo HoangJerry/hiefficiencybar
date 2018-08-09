@@ -1,0 +1,36 @@
+## Standard ignored patterns
+############################
+*~
+*.pyc
+.*.swp
+*.bak
+.DS_Store
+node_modules
+
+## Project specific ignore patterns
+###################################
+settings_local.py
+db.sql
+/media/
+/uploads/
+/static/
+/Manager/migrations/
+/logs/
+
+.project
+.metadata/
+.pydevproject
+blur-admin/.tmp/
+
+## Deployment & build ignore pattern
+####################################
+# Virtual envs
+/env/
+#/*_env/
+#/env_*/
+.elasticbeanstalk/
+.idea/
+tags
+bower_components
+
+./blur-admin/.tmp/

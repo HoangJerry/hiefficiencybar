@@ -1,0 +1,132 @@
+/* For resolution 1200 and above */
+@media (max-width: 991px){
+  /*header*/
+  .header{
+    /*header navbar*/
+    &_navbar{
+      &_menu{
+        padding-left: 10px;
+        padding-right: 6px;
+        margin: 0;
+        min-height: 100px;
+        .navbar-header{
+          .navbar-toggle{
+            .icon-bar{
+              background: #fff;
+            }
+          }
+          #logo{
+            text-align: center;
+            img{
+              width: 189px;
+            }
+          }
+        }
+      }
+    }
+    /*banner*/
+    &_banner{
+
+      &_info{
+        margin-top: 100px;
+        margin-bottom: 100px;
+      }
+      &_avatar{
+        img{
+          float: right;
+          width: 280px;
+          height: auto;
+        }
+      }
+    }
+  }
+  /*open Main*/
+  .main{
+    /*Navbar*/
+    &_navbar{
+      $height-bar : 400px;
+      .bar_back{
+        .bar_item{
+          margin-right: 0;
+        }
+        .bar_main{
+          padding-left: 20px;
+        }
+      }
+      .bar{
+        &_main{
+          a{
+           display: none;
+          }
+        }
+        &_item {
+          height: $height-bar;
+          &_title{
+            padding-top: 119px;
+          }
+        }
+      }
+    }
+    /*powerful*/
+    &_powerful{
+      height: 339px;
+      &_avatar{
+      img{
+        margin-left: 0;
+      }
+      }
+      &_content{
+        padding-top: 64px;
+        h3{
+          font-size: 48px;
+          line-height: 73px;
+        }
+        p{
+          font-size: 18px;
+          line-height: 27px;
+        }
+      }
+    }
+    .main_slider #myCarousel .carousel-inner .item_avatar {
+      height: 308.85px;
+      width: auto;
+    }
+  }
+  /*Close Main*/
+  /*open footer*/
+  .footer{
+    text-align: center;
+    &_contact{
+      &_title{
+        margin-left: 0;
+        line-height: 100px;
+        font-size: 35px;
+        font-weight: 400;
+      }
+      &_button{
+        line-height: 100px;
+        padding: 16px 29px;
+        font-size: 14px;
+      }
+    }
+    &_navbar{
+      &_logo{
+        img{
+          width: 69%;
+        }
+      }
+      &_menu{
+        padding-top: 0;
+        li{
+          a{
+            font-size: 20px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+  /*close footer*/
+}
+
+

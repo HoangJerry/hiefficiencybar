@@ -1,0 +1,22 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title">Import Ingredient "{{ import.name }}"</h4>
+    </div>
+    <div class="modal-body">
+        <form name="form" class="form_create">
+
+            <div class="form-group">
+                <label style="color : #7d7d7d; font-weight : bold;" for="">Quantity</label>
+                <input type='number' min="0" class="form-control" ng-model="data_import.quantity" ng-change="changeInfo('quantity', data_import.quantity)"
+                />
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="import()">Yes</button>
+        <button type="button" class="btn btn-danger" ng-click="$dismiss()">No</button>
+    </div>
+</div>

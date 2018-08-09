@@ -1,0 +1,238 @@
+<div ba-panel="" ba-panel-title="Detail Drink" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <form name="form" class="form_create">
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="detail.name" ng-change="changeInfo('name', detail.name)">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="">Category</label>
+                <select style="height : 200px;" class="form-control" name="category" id="category" ng-model="detail.category" ng-change="changeInfo('category', detail.category)"
+                    multiple>
+                    <option ng-repeat="item in list_categories" value="{{ item.id }}">{{ item.link }}</option>
+                </select>
+            </div> -->
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Category</label>
+                <!-- <multiselect class="input-xlarge" multiple="true" ng-model="detail.category" options="item.link for item in list_categories"
+                    change="selected()"></multiselect> -->
+                <!-- <div class="form-control _select_multi" ng-dropdown-multiselect="" options="list_categories" selected-model="selected_baselines"
+                    extra-settings="selected_baseline_settings" translation-texts="selected_baselines_customTexts"></div> -->
+
+                <!-- <select >
+                    <option ng-selected="item.id === detail.cate" value="{{item.id}}">{{ item.link }}</option>
+                </select> -->
+
+                <div class="form-control _select_category" uib-dropdown on-toggle="toggled(open)">
+                    <a class="_btn_select_cate" href id="simple-dropdown" uib-dropdown-toggle>
+                        <span ng-if="categories.length === 0">Select Category</span>
+                        <span class="_item_select" ng-if="categories.length > 0" ng-repeat="elm in categories">{{ elm.link }}</span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li role="menuitem" ng-repeat="item in list_categories">
+                            <a ng-click="selectCategory(item)" class="check_{{item.id}}" style="margin : 0;" ng-style="item.selected && {'font-weight': 'bold'}">
+                                {{item.link}}
+                                <i ng-if="item.selected" class="fa fa-check _check_icon pull-right" style="margin-right : 5px; color: green;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="form-group col-xs-6">
+                    <label style="color : #fff; font-weight : bold;" for="">Image</label>
+                    <div class="">
+                        <div class="userpic">
+                            <div ng-show="isChangeImage" class="userpic-wrapper">
+                                <img style="max-height: 100% !important;" src="{{ detail.image }}" ng-click="uploadPicture()">
+                            </div>
+                            <div ng-show="!isChangeImage" class="userpic-wrapper">
+                                <img style="max-height: 100% !important;" src="{{ image }}" ng-click="uploadPicture('image')">
+                            </div>
+                            <i ng-show="!isChangeImage" class="ion-ios-close-outline" ng-click="removePicture('image')" ng-if="!noPicture"></i>
+                            <a href class="change-userpic" ng-click="uploadPicture('image')">Change Image</a>
+
+                            <input type='file' id="uploadImage" ng-show="false" ng-model-instant onchange="angular.element(this).scope().imageUpload(event, 'image')"
+                            />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-xs-6">
+                    <label style="color : #fff; font-weight : bold;" for="">Image Background</label>
+                    <div class="">
+                        <div class="userpic">
+                            <div ng-show="isChangeBackgroundImage" class="userpic-wrapper">
+                                <img style="width: 100% !important;" src="{{ detail.image_background }}" ng-click="uploadPicture()">
+                            </div>
+                            <div ng-show="!isChangeBackgroundImage" class="userpic-wrapper">
+                                <img style="width: 100% !important;" src="{{ image_background }}" ng-click="uploadPicture('image_background')">
+                            </div>
+                            <i ng-show="!isChangeBackgroundImage" class="ion-ios-close-outline" ng-click="removePicture('image_background')" ng-if="!noPicture"></i>
+                            <a href class="change-userpic" ng-click="uploadPicture('image_background')">Change Image</a>
+
+                            <input type='file' id="image_background" ng-show="false" ng-model-instant onchange="angular.element(this).scope().imageUpload(event, 'image_background')"
+                            />
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-inline custom-checkbox nowrap">
+                    <input type="checkbox" id="inlineCheckbox01" name="is_fit_price" ng-change="changeInfo('is_fit_price', detail.is_fit_price)" ng-model="detail.is_fit_price"> 
+                    <span>Fixed price</span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Price</label>
+                <input ng-disabled="isDisablePrice" class="form-control" type="number" min="0" name="price" placeholder="Price" ng-model="detail.price" ng-change="changeInfo('price', detail.price)">
+            </div>
+
+           <!--  <div class="form-group">
+                <input type="checkbox" name="is_fit_price">
+                <label>Is fit price</label>
+            </div> -->
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Prep</label>
+
+                <select class="form-control" name="prep" ng-model="detail.prep" ng-change="changeInfo('prep', detail.prep)">
+                    <option ng-selected="detail.prep === 0" value="0">Shake</option>
+                    <option ng-selected="detail.prep === 10" value="10">Filter</option>
+                    <option ng-selected="detail.prep === 20" value="20">Stir</option>
+                    <option ng-selected="detail.prep === 30" value="30">Muddle</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Glass</label>
+
+                <select class="form-control" name="glass" ng-model="detail.glass" ng-change="changeInfo('glass', detail.glass)">
+                    <option ng-repeat="item in list_glass" class="form-control" value="{{item.id}}">{{item.name}} - {{item.size}} </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Keyword</label>
+                <input class="form-control" type="text" name="key_word" placeholder="Keyword" ng-model="detail.key_word" ng-change="changeInfo('key_word', detail.key_word)">
+            </div>
+
+            <div class="form-group">
+                <label style="color : #fff; font-weight : bold;" for="">Estimate time</label>
+                <!-- <input class="form-control" type="number" min="0" name="estimate_time" placeholder="Estimate time" ng-model="detail.estimate_time"
+                    ng-change="changeInfo('estimate_time', detail.estimate_time)"> -->
+                    <div class="_est">
+                        <div class="_min">
+                            <!-- <label style="color : #fff; font-weight : bold;" >Minute (m)</label> -->
+                            <input type="number" name="minute" min="0" max="59" ng-model="est.min"> (m)
+                        </div>
+                        <div class="_sec">
+                            <!-- <label style="color : #fff; font-weight : bold;" >Seconds (s)</label> -->
+                            <input type="number" name="seconds" min="0" max="59" ng-model="est.sec"> (s)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                <!-- <label class="checkbox-inline custom-checkbox nowrap">
+                    <input type="checkbox" ng-model="detail.is_have_ice" ng-click="changeInfo('is_have_ice', detail.is_have_ice)">
+                    <span>Is have ice</span>
+                </label> -->
+
+                <label class="_switch_label " style="color : #fff; font-weight : bold;" for="">Is have ice</label>
+                <div class="_switch_button">
+                    <div class="_status">
+                        <ba-switcher switcher-style="success" switcher-value="detail.is_have_ice" ng-click="updateProfile('is_have_ice', detail.is_have_ice)"></ba-switcher>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingredient -->
+            <div class="drink_ingredient">
+                <h3 class="with-line ng-scope">Ingredient</h3>
+
+                <div class="add-row-editable-table">
+                    <button class="btn btn-primary" data-toggle="modal" ng-click="openCreateIngredient('md')">
+                        <i class="ion-plus-round"></i> Add Ingredient</button>
+                    </div>  
+
+                    <table ng-if="ingredients.length > 0" class="table table-striped" st-table="smartTableData">
+                        <thead>
+                            <tr class="sortable ">
+                                <th class="" style="text-align : left;">Ingredient</th>
+                                <th>Ratio</th>
+                                <th>Unit</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in ingredients" class="ng-scope">
+                                <td class="ng-binding" style="text-align : left;">
+                                    {{ item.ingredient.name}}
+                                </td>
+                                <td class="ng-binding">
+                                    {{ item.ratio }}
+                                </td>
+                                <td class="ng-binding">
+                                    {{ item.unit_view }}
+                                </td>
+                                <td class="ng-binding" style="width: 30px; text-align : center;">
+                                    <a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+                                        <i class="ion-android-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Garnish -->
+                <div class="drink_ingredient">
+                    <h3 class="with-line ng-scope">Garnish</h3>
+
+                    <div class="add-row-editable-table">
+                        <button class="btn btn-primary" data-toggle="modal" ng-click="openCreateGarnish('md')">
+                            <i class="ion-plus-round"></i> Add Garnish</button>
+                        </div>
+
+                        <table ng-if="garnishs.length > 0" class="table table-striped" st-table="smartTableData">
+                            <thead>
+                                <tr class="sortable ">
+                                    <th class="" style="text-align : left;">Garnish</th>
+                                    <th>Ratio</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in garnishs" class="ng-scope">
+                                    <td class="ng-binding" style="text-align : left;">
+                                        {{item.garnish.name}}
+                                    </td>
+                                    <td class="ng-binding">
+                                        {{ item.ratio }}
+                                    </td>
+                                    <td class="ng-binding" style="width: 30px; text-align : center;">
+                                        <a href="" data-toggle="modal" ng-click="confirmDeleteGarnish(item)" style="color : #e85555;">
+                                            <i class="ion-android-delete"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 60px;">
+                        <hr>
+                        <button type="button" class="btn btn-primary" ng-click="save()">Save</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>

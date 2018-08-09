@@ -1,0 +1,49 @@
+<div class="" style="margin-bottom : 15px;">
+    <a class="btn btn-primary" href="#/order/carts" style="background: #209e91; border-color: #209e91;">Order in cart</a>
+</div>
+
+<div ba-panel="" ba-panel-title="Order history" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="text-align : left;">Created Date</th>
+                    <th style="text-align : left;">Time</th>
+                    <th style="text-align : left;">Username</th>
+                    <th style="text-align : center;">Avatar</th>
+                    <th>Status</th>
+                    <th style="text-align : left;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listData" class="ng-scope">
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.creation_date | date:'MM/dd/yyyy'}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.creation_date | date:'h:mm:ss a'}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.user.first_name}} {{item.user.last_name}}
+                    </td>
+                    <td class="ng-binding" style="text-align : center;">
+                        <div style="width: 100px; height: 100px; padding: 10px; margin: 0 auto;">
+                            <img class="img-thumbnail" src="{{ item.user.avatar }}" style="width: 100%;">
+                        </div>
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.status_view}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.amount}}
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="" style="margin-bottom : 15px;">
+    <a class="btn btn-primary" href="#/manager-drink/categories/create" style="background: #209e91; border-color: #209e91;">Create</a>
+</div>
+
+<div ba-panel="" ba-panel-title="List Categories" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="text-align : left;">Name</th>
+                    <th>Full Category</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listDataCategory" class="ng-scope">
+                    <td class="ng-binding" style="text-align : left;">
+                        <a href="#/manager-drink/categories/detail/{{item.id}}">{{item.name}}</a>
+                    </td>
+                    <td class="ng-binding">
+                        {{item.link}}
+                    </td>
+                    <td class="ng-binding">
+                        <div class="_status">
+                            <ba-switcher switcher-style="success" switcher-value="item.active" ng-model="active" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div>
+                    </td>
+                    <td class="ng-binding" style="width: 30px; text-align : center;">
+                        <a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+                            <i class="ion-android-delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

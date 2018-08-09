@@ -1,0 +1,46 @@
+<div class="" style="margin-bottom : 15px;">
+    <a class="btn btn-primary" href="#/manager-drink/garnish/create" style="background: #209e91; border-color: #209e91;">Create</a>
+</div>
+
+<div ba-panel="" ba-panel-title="List Garnish" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="table-id">#</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listData" class="ng-scope">
+                    <td class="table-id ng-binding">{{item.id}}</td>
+                    <td class="ng-binding">
+                        <a href="#/manager-drink/garnish/detail/{{item.id}}">{{item.name}}</a>
+                    </td>
+                    <td>
+                        <div style="width : 100px;">
+                            <img src="{{ item.image }}" alt="" style="width : 100%;">
+                        </div>
+                    </td>
+                    <td class="ng-binding">
+                        <!-- <label class="checkbox-inline custom-checkbox nowrap">
+							<input type="checkbox" ng-checked="item.active" ng-model="item.active" ng-click="changeActive(item)">
+							<span></span>
+                        </label> -->
+                        <div class="_status">
+                            <ba-switcher switcher-style="success" switcher-value="item.active" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div>
+                    </td>
+                    <td class="ng-binding" style="width: 30px; text-align : center;">
+                        <a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+                            <i class="ion-android-delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

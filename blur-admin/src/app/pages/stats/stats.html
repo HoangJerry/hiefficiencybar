@@ -1,0 +1,80 @@
+<!-- <section class="chartist">
+	<div class="row">
+		<div class="col-md-6 ">
+			<div ba-panel ba-panel-title="Order" ba-panel-class="with-scroll ">
+				<div id="orderChart" class="ct-chart"></div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<section ng-controller="StatsCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<div ba-panel ba-panel-title="Order" ba-panel-class="with-scroll" style="position: relative;">
+				<div class="chart_filter form-group" style="width: 100px; position: absolute; left: 110px; top: 5px;">
+					<select class="form-control" ng-model="filterOrder" ng-change="changeFilterOrder(filterOrder)">
+						<option value="month">Month</option>
+						<option value="day">Day</option>
+					</select>
+				</div>
+				<div
+					line-chart
+					line-data='lineData'
+					line-xkey='datetimes'
+					line-ykeys='["drink_order", "income_order", "count"]'
+					line-labels='["Drink Order", "Income Order", "Count"]'
+					line-colors='colors'
+					>
+				</div>
+				<!-- <div
+					ng-show="filterOrder === 'day' "
+					line-chart
+					line-data='lineData'
+					line-xkey='day'
+					line-ykeys='["drink_order", "income_order", "count"]'
+					line-labels='["Drink Order", "Income Order", "Count"]'
+					line-colors='colors'
+					>
+				</div> -->
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div ba-panel ba-panel-title="User" ba-panel-class="with-scroll " style="position: relative;">
+				<div class="chart_filter form-group" style="width: 100px; position: absolute; left: 130px; top: 5px;">
+					<select class="form-control" ng-model="filterUser" ng-change="changeFilterUser(filterUser)">
+						<option value="month">Month</option>
+						<option value="day">Day</option>
+					</select>
+				</div>
+				<div
+					bar-chart
+					bar-data='barData'
+					bar-x='datetimes'
+					bar-y='["count"]'
+					bar-labels='["Count"]'
+					bar-colors='colors'>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div ba-panel ba-panel-title="Order" ba-panel-class="with-scroll" style="position: relative;">
+				<div class="chart_filter form-group" style="width: 100px; position: absolute; left: 110px; top: 5px;">
+					<select class="form-control" ng-model="filterOrder" ng-change="changeFilterOrder(filterOrder)">
+						<option value="month">Month</option>
+						<option value="day">Day</option>
+					</select>
+				</div>
+				<div
+					area-chart
+					area-data='lineData'
+					area-xkey='datetimes'
+					area-ykeys='["drink_order", "income_order", "count"]' %
+					area-labels='["Drink Order", "Income Order", "Count"]'
+					line-colors='colors'>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

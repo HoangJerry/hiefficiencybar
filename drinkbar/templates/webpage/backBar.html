@@ -1,0 +1,152 @@
+{% extends './base.html' %}
+{% load staticfiles %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'public/css/custom.css' %}">
+{% endblock %}
+{% block header_banner%}
+    <div class="header_banner">
+        <div class="container">
+            <div class="header_banner_info">
+                <h3>BACK BAR</h3>
+                <hr>
+                <p>For Hotels, Lounges, Casinos, Resorts and more.</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="header_more">
+        <div class="container">
+            <div href="#" class="thumbnail">
+                <img src="{% static 'public/images/thumbnail_front.png' %}" alt="...">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block main%}
+<main class="main">
+    <div class="main_automation">
+        <div class="container">
+            <div class="row">
+                <div class="main_automation_title">
+                    <h3>We’re in Front of the Competition… <br>Serving Your Back Bar.</h3>
+                </div>
+                <div class="main_automation_content">
+                    <p>Our back bar functionality allows for increased production levels and reduced wait time for patrons by processing and making orders as they are input. The server can stay with the customer until the drink is ready to be served.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_navbar">
+        <h3 class="main_navbar_title">Did You Know?</h3>
+        <div class="container main_navbar_content">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div class="item">
+                        <h3>100%</h3>
+                        <hr>
+                        <h4>Reduction in Wait Time</h4>
+                        <p>Drink production begins the moment orders are submitted</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item">
+                        <h3>100%</h3>
+                        <hr>
+                        <h4>Greater Throughput</h4>
+                        <p>Due to a safer, glass-enclosed design, our robots can operate without speed limitations</p>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <span></span>
+
+    </div>
+    <div class="main_features">
+        <div class="main_features_heading">
+            <h3>Our Back Bar Features</h3>
+            <p>Here are a few of the things that make this automated bar so great.</p>
+        </div>
+        <div class="main_features_content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="item item-part1">
+                            <img  src="{% static 'public/images/features_icon1.PNG' %}"  alt="">
+                            <h4>Durable Design</h4>
+                            <p>Completely enclosed in glass,  our design allows for increased production</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="item item-part2">
+                            <img src="{% static 'public/images/features_icon2.PNG' %}" style ="margin-bottom: 30px" alt="">
+                            <h4>Speed Control</h4>
+                            <p>Our units can run at 100% indefinitely, with no safety concerns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="item item-part3">
+                                <img src="{% static 'public/images/features_icon3.PNG' %}" style="margin-bottom: 18px" alt="">
+                                <h4>Data Reports</h4>
+                                <p>Robust data reporting via a custom back end bar management system (or point of sale)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="item item-part4">
+                                <img src="{% static 'public/images/features_icon4.PNG' %}" alt="">
+                                <h4>Easy Maintenance</h4>
+                                <p>No downtime for maintenance, no lunch breaks or sick days… thank you automation</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_related">
+        <div class="container">
+            <div class="main_related_heading">
+                <h3>Related Products</h3>
+                <p>Our vast product line has the bartending industry covered. Contact us for more information!</p>
+            </div>
+            <div class="main_related_content">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'public/images/related1.png' %}" alt="...">
+                            <div class="caption">
+                                <h3>Front Bar</h3>
+                                <p  style="padding-bottom: 60px">Our front bar is crafted to fit your needs and increase serving speeds for customers. </p>
+                                <a href="#" class="btn btn-primary" role="button">LEARN MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'public/images/related2.png' %}" alt="...">
+                            <div class="caption">
+                                <h3>Home Bar</h3>
+                                <p style="padding-bottom: 30px">From simple to lavish, customize
+                                    a bar for your home or private club. No design is too complex for us to create for you! </p>
+                                <a href="#" class="btn btn-primary" role="button">LEARN MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                        <div class="thumbnail">
+                            <img src="{% static 'public/images/related3.png' %}" alt="...">
+                            <div class="caption">
+                                <h3>Mobile Bar</h3>
+                                <p>From a music festival to your daughter’s Sweet 16 party, serving free-flow alcohol or alcohol-free mixes, our mobile system is ideal for all occasions.</p>
+                                <a href="#" class="btn btn-primary" role="button">LEARN MORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

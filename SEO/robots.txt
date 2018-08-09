@@ -1,0 +1,5 @@
+# Notice: Crawling Hi-efficiency is prohibited unless you have express written
+# permission. See: http://www.hiefficiencybar.com/
+
+User-agent: *
+Disallow: /

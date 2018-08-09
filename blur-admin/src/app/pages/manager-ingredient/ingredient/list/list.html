@@ -1,0 +1,108 @@
+<div class="" style="margin-bottom : 15px; display: inline-block; overflow : hidden;">
+    <a class="btn btn-primary" href="#/manager-ingredient/ingredient/create" style="background: #209e91; border-color: #209e91;">Create</a>
+
+</div>
+
+<div class="_search_data pull-right">
+    <div class="_search_form">
+        <input type="text" name="search" ng-model="keywork" ng-keydown="$event.keyCode === 13 && searchData()" ng-change="changeKeywork(keywork)">
+        <a href="" ng-click="searchData()">
+            <i class="ion-search"></i>
+        </a>
+    </div>
+</div>
+
+<div class="pull-right" style="margin-right : 15px;">
+    <a class="btn btn-default pull-right" href="#/manager-ingredient/history/list">
+        <i class="ion-loop"></i> History</a>
+    <a class="btn btn-success pull-right" href="#/manager-ingredient/ingredient/import/" style="margin-right : 15px;">
+        <i class="fa fa-sign-in-alt"></i> Import</a>
+</div>
+
+<div ba-panel="" ba-panel-title="List Ingredient" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <div class="filter-top">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        <i class="ion-funnel"></i> Filter Ingredient</h3>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <select class="form-control" name="status" ng-model="data_filter.filter_type" ng-change="changeFilter('filter_type', data_filter.filter_type)">
+                            <option ng-repeat="item in filter_types" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div ng-if="isShowFilterBrand" class="col-md-2">
+                    <div class="form-group">
+                        <select class="form-control" name="status" ng-model="data_filter.filter_brand" ng-change="changeFilter('filter_brand', data_filter.filter_brand)">
+                            <option value="">No Select</option>
+                            <option ng-repeat="item in filter_brands" class="form-control" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-striped" st-table="smartTableData">
+            <thead>
+                <tr class="sortable ">
+                    <th class="" style="text-align : left;">Name</th>
+                    <th style="text-align: center;">Image</th>
+                    <th>Type</th>
+                    <th>Type By</th>
+                    <th>Brand</th>
+                    <th>Bottel in storage</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listData" class="ng-scope">
+                    <td class="ng-binding" style="text-align : left;">
+                        <a href="#/manager-ingredient/ingredient/detail/{{item.id}}">{{item.name}}</a>
+                    </td>
+                    <td class="ng-binding">
+                        <div class="" style="text-align: center; padding: 10px; margin: 0 auto; width: 100px;">
+                            <img src="{{item.image}}" style="width: 100%;">
+                        </div>
+                    </td>
+                    <td class="ng-binding">
+                        <span>
+                            <span>{{ item.type.name }}</span>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        <span>
+                            <span>{{ item.type_search_view }}</span>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        <span>
+                            <span>{{ item.brand.name }}</span>
+                        </span>
+                    </td>
+                    <td class="ng-binding">
+                        <span>{{ item.bottles }}</span>
+                    </td>
+                    <td class="ng-binding">
+                        <div class="_status">
+                            <ba-switcher switcher-style="success" switcher-value="item.status" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div>
+                    </td>
+                    <td class="ng-binding" style="width: 30px; text-align : center;">
+                        <a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+                            <i class="ion-android-delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right border_top_0" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

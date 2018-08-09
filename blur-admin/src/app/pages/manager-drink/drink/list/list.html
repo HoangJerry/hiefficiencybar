@@ -1,0 +1,116 @@
+<div class="" style="margin-bottom : 15px; display: inline-block; overflow : hidden;">
+    <a class="btn btn-primary" href="#/manager-drink/drink/create" style="background: #209e91; border-color: #209e91;">Create</a>
+</div>
+
+<div class="" style="margin-bottom : 15px; display: inline-block; overflow : hidden;">
+<label class="btn btn-primary"  style="background: #e85555; border-color: #e85555;">
+    Import csv
+    <input type="file" style="display: none;" onchange="angular.element(this).scope().onClickImport(this)">
+</label>
+</div>
+
+<div class="_search_data pull-right">
+    <div class="_search_form">
+        <input type="text" name="search" ng-model="keywork" ng-keydown="$event.keyCode === 13 && searchData()" ng-change="changeKeywork(keywork)">
+        <a href="" ng-click="searchData()">
+            <i class="ion-search"></i>
+        </a>
+    </div>
+</div>
+
+<div ba-panel="" ba-panel-title="List Drink" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped sortable" st-table="listDataDrink">
+            <thead>
+                <tr>
+                    <th class="table-id">#</th>
+                    <th ng-model="static_sort.name" ng-click="sortData('name', static_sort.name)">
+                        <span ng-show="static_sort.name === 'name'" class="ion-arrow-up-b"></span>
+                        <span ng-show="static_sort.name === '-name'" class="ion-arrow-down-b"></span>
+                        Name
+                    </th>
+                    <th style="text-align : center;">Image</th>
+                    <th ng-model="static_sort.status" ng-click="sortData('status', static_sort.status)">
+                        <span ng-show="static_sort.status === 'status'" class="ion-arrow-up-b"></span>
+                        <span ng-show="static_sort.status === '-status'" class="ion-arrow-down-b"></span>
+                        Status
+                    </th>
+                    <th style="text-align : left;">Prep</th>
+                    <th ng-model="static_sort.glass" ng-click="sortData('glass', static_sort.glass)">
+                        <span ng-show="static_sort.glass === 'glass'" class="ion-arrow-up-b"></span>
+                        <span ng-show="static_sort.glass === '-glass'" class="ion-arrow-down-b"></span>
+                        Glass
+                    </th>
+                    <th ng-model="static_sort.numbers_bought" ng-click="sortData('numbers_bought', static_sort.numbers_bought)">
+                        <span ng-show="static_sort.numbers_bought === 'numbers_bought'" class="ion-arrow-up-b"></span>
+                        <span ng-show="static_sort.numbers_bought === '-numbers_bought'" class="ion-arrow-down-b"></span>
+                        Numbers bought
+                    </th>
+                    <th ng-model="static_sort.price" ng-click="sortData('price', static_sort.price)">
+                        <span ng-show="static_sort.price === 'price'" class="ion-arrow-up-b"></span>
+                        <span ng-show="static_sort.price === '-price'" class="ion-arrow-down-b"></span>
+                        Price
+                    </th>
+                    <!-- <th>Is have ice</th> -->
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listDataDrink" class="ng-scope">
+                    <td class="table-id ng-binding">{{item.id}}</td>
+                    <td class="ng-binding">
+                        <a href="#/manager-drink/drink/detail/{{item.id}}">{{item.name}}</a>
+                    </td>
+                    <td class="ng-binding align-items-center" style="text-align : center;">
+                        <div class="_image _drink">
+                            <img ng-if="item.image" ng-src="{{ item.image }}" alt="{{item.image}}">
+                        </div>
+                    </td>
+                    <td class="ng-binding align-items-center">
+                        <div class="_status">
+                            <ba-switcher data-ng-disabled="true" switcher-style="success" switcher-value="item.status" ng-click="changeSwitch(item)"></ba-switcher>
+                        </div>
+                        <!-- <button style="margin : 5px auto; min-width : 100px;" ng-if="item.is_have_ice" type="button" class="btn btn-success btn-with-icon">
+                            <i class="fa fa-sign-in-alt" style="margin-right : 7px;"></i>On</button>
+                        <button style="margin : 5px auto; min-width : 100px;" ng-if="!item.is_have_ice" type="button" class="btn btn-danger btn-with-icon">
+                            <i class="fa fa-sign-out-alt" style="margin-right : 7px;"></i>Off</button> -->
+                        <!-- <button style="margin : 5px auto;" ng-if="item.is_have_ice" type="button" class="btn btn-success btn-icon">
+                            <i class="ion-android-checkmark-circle"></i>
+                        </button>
+                        <button style="margin : 5px auto;" ng-if="!item.is_have_ice" type="button" class="btn btn-danger btn-icon">
+                            <i class="ion-close"></i>
+                        </button> -->
+                    </td>
+                    <td class="ng-binding">
+                        {{item.prep_view}}
+                    </td>
+                    <td class="ng-binding">
+                        {{item.glass.name}}
+                    </td>
+                    <td class="ng-binding">
+                        {{item.numbers_bought}}
+                    </td>
+                    <td class="ng-binding">
+                        <span ng-if="item.price">{{item.price}}</span>
+                        <span ng-if="!item.price">0</span>
+                    </td>
+                    <!-- <td class="ng-binding">
+                            <label class="checkbox-inline custom-checkbox nowrap">
+                                <input type="checkbox" ng-checked="item.active" ng-model="item.active" ng-click="changeActive(item)">
+                                <span></span>
+                            </label>
+                        </td> -->
+                    <td class="ng-binding" style="width: 30px; text-align : center;">
+                        <a href="" data-toggle="modal" ng-click="confirmDelete(item)" style="color : #e85555;">
+                            <i class="ion-android-delete"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

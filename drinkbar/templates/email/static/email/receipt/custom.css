@@ -1,0 +1,188 @@
+
+@font-face {
+  font-family: 'HelveticaNeueBold';
+  src: url('fonts/HelveticaNeueBold.woff') format('woff'),
+       url('fonts/HelveticaNeueBold.ttf') format('truetype'),
+       url('fonts/HelveticaNeueBold.svg#HelveticaNeueBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeueMedium';
+  src: url('fonts/HelveticaNeueMedium.woff') format('woff'),
+       url('fonts/HelveticaNeueMedium.ttf') format('truetype'),
+       url('fonts/HelveticaNeueMedium.svg#HelveticaNeueMedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+	font-family: 'HelveticaNeueMedium';
+	font-weight: normal;
+}
+.wrapper{
+	width: 600px;
+	/*margin: 0 auto;*/
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ededee+0,ededee+35,dedfe0+69,7c7e80+100 */
+	background: #ededee; /* Old browsers */
+	background: -moz-linear-gradient(left, #ededee 0%, #ededee 35%, #dedfe0 69%, #7c7e80 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #ededee 0%,#ededee 35%,#dedfe0 69%,#7c7e80 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #ededee 0%,#ededee 35%,#dedfe0 69%,#7c7e80 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededee', endColorstr='#7c7e80',GradientType=1 ); /* IE6-9 */
+	overflow: hidden;
+}
+/*------headerContainer------*/
+.headerContainer{
+	width:100%;
+	background: url(images/bg1.png) no-repeat center top;
+	position: relative;
+	min-height: 280px;
+}
+.textLogo{
+	position: absolute;
+	top: 93px;
+	left: 110px;
+}
+.textLogo h3{
+	font-size: 12px;
+	margin: 0;
+	color: #000000;
+	line-height: 14px;
+	margin-bottom: -5px;
+}
+.textLogo a{
+	display: inline-block;
+	text-decoration: none;
+	font-size: 10px;
+	margin: 0;
+	font-weight:  500;
+	color: #000000;
+	line-height: 12px;
+}
+.textStever{
+	position: absolute;
+	top: 165px;
+	left: 125px;
+}
+.textStever h3{
+	font-size: 22px;
+	font-family: 'HelveticaNeueBold';
+	color: #000000;
+	margin: 0;
+	line-height: 23px;
+}
+.textStever h3 span{
+	font-size: 12px;
+	font-family: 'HelveticaNeueMedium';
+}
+.textRoboto-title{
+	width: 245px;
+	position: absolute;
+	top: 163px;
+	right: 13px;
+}
+.textRoboto-title table tr td{
+	width: 81%;
+	color: #fff;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+.textRoboto{
+	width: 266px;
+	position: absolute;
+	top: 181px;
+	right: 27px;
+}
+.textRoboto table tr td{
+	width: 3%;
+	text-align: center;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+.textRoboto table tr td span{
+	font-size: 27px;
+}
+.textTitleTab{
+	width: 478px;
+	position: absolute;
+	bottom: 18px;
+	right: 50px;
+}
+.textTitleTab table tr td{
+	width: 1%;
+	/* text-align: center; */
+	color: #fff;
+	font-size: 9px;
+	font-family: 'HelveticaNeueBold';
+	text-transform: uppercase;
+}
+/*contentContainer*/
+.contentContainer{
+	width: 100%;
+	overflow: hidden;
+}
+.contentTable{
+	width: 78%;
+	margin:  0 auto;
+	border-radius: 0 0 10px 10px;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid #000;
+	border-top: 0;
+	padding: 0 15px 100px;
+}
+.contentTable table tr td{
+	text-align: center;
+	color: #000;
+	font-size: 12px;
+}
+.contentTable table tr td.tab-center{
+	text-align: left;
+}
+.contentTable table tr{
+	border-bottom: 1px solid #000;
+}
+/* footer */
+.footerContainer{
+	width:100%;
+	background: url(images/bg2.png) no-repeat center top -12px;
+	position: relative;
+	min-height: 227px;
+}
+.footerContainer p{
+	font-size: 12px;
+	margin: 0;
+	color: #000;
+}
+.textSub p{
+	position: absolute;
+	right: 115px;
+	top: 4px;
+}
+
+.textTax p{
+	position: absolute;
+	right: 120px;
+	top: 31px;
+}
+
+.textTot p{
+	position: absolute;
+	right: 114px;
+	top: 59px;
+}
+.footerCopyContainer{
+	width: 100%;
+	padding: 10px 0;
+	overflow: hidden;
+}
+.footerCopyContainer p{
+	text-align: center;
+	font-size: 10px;
+	color: #000;
+	font-family: 'HelveticaNeueBold';
+	margin: 0;
+}
+.footerCopyContainer p a{
+	color: #000;
+}

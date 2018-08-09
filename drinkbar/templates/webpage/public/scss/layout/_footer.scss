@@ -1,0 +1,109 @@
+/*open footer*/
+.footer{
+  &_patented{
+    text-align: center;
+    background: #1E283B;
+    padding-top: 50px;
+    padding-bottom: 74px;
+    h3{
+      color: #ffffff;
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 100px;
+    }
+    h2{
+      color: #D9BA00;
+      font-size: 60px;
+      font-weight: 300;
+      line-height: 98px;
+      padding-bottom: 7px;
+    }
+    p{
+      font-size: 23px;
+      line-height: 30px;
+      color: #ffffff;
+      max-width: 72.5%;
+      margin: 0 auto;
+    }
+    .content{
+      padding-bottom:30px ;
+    }
+    .number{
+    }
+  }
+  &_contact{
+    background: #F0F0F0;
+    &_title{
+      margin-left: 72px;
+      line-height: 184px;
+      font-size: 45px;
+      font-weight: 400;
+    }
+    &_button{
+      background: #3496AD;
+      border-radius: 50px;
+      line-height: 184px;
+      color: #ffffff;
+      font-family: 'muli', sans-serif;
+      padding: 24px 60px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    &_button:hover{
+      background: #fff11b;
+      color: #3496AD;
+      text-decoration: none;
+    }
+  }
+  &_navbar{
+    &_logo{
+      img{
+        width: 90%;
+        height: auto;
+      }
+    }
+    &_menu{
+      padding-top: 60px;
+      li{
+        a{
+          color: #3496AD;
+          font-size: 23px;
+          line-height: 44px;
+          font-weight: 500;
+        }
+      }
+    }
+    &_about{
+      padding-top: 60px;
+      line-height: 28px;
+      h3{
+        font-size: 20px;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+      p{
+        line-height: 30px;
+        font-size: 23px;
+        font-weight: 400;
+      }
+    }
+    &_social{
+      padding-top: 60px;
+      h3{
+        font-size: 20px;
+        font-weight: 700;
+        margin: 10px 0;
+      }
+      a{
+      }
+    }
+  }
+  &_copyRight{
+    text-align: center;
+    margin: 50px 0 20px 0;
+    font-size: 18px;
+    color: #7B7B7B;
+    font-weight: 400;
+  }
+}
+/*close footer*/

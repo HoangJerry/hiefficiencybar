@@ -1,0 +1,536 @@
+<style type="text/css" media="screen">
+        @font-face {
+          font-family: 'HelveticaNeueBold' !important;
+          src: url('./assets/receipt/fonts/HelveticaNeueBold.woff') format('woff'),
+               url('./assets/receipt/fonts/HelveticaNeueBold.ttf') format('truetype'),
+               url('./assets/receipt/fonts/HelveticaNeueBold.svg#HelveticaNeueBold') format('svg') !important;
+          font-weight: normal !important;
+          font-style: normal !important;
+        }
+
+        @font-face {
+          font-family: 'HelveticaNeueMedium' !important;
+          src: url('./assets/receipt/fonts/HelveticaNeueMedium.woff') format('woff'),
+               url('./assets/receipt/fonts/HelveticaNeueMedium.ttf') format('truetype'),
+               url('./assets/receipt/fonts/HelveticaNeueMedium.svg#HelveticaNeueMedium') format('svg') !important;
+          font-weight: normal !important;
+          font-style: normal !important;
+        }
+        body{
+            font-family: 'HelveticaNeueMedium' !important;
+            font-weight: normal !important;
+            margin: 0 !important;
+        }
+        .wrapper{
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ededee+0,ededee+35,dedfe0+69,7c7e80+100 */
+            background: #ededee !important; /* Old browsers */
+            background: -moz-linear-gradient(left, #ededee 0%, #ededee 35%, #dedfe0 69%, #7c7e80 100%) !important; /* FF3.6-15 */
+            background: -webkit-linear-gradient(left, #ededee 0%,#ededee 35%,#dedfe0 69%,#7c7e80 100%) !important; /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to right, #ededee 0%,#ededee 35%,#dedfe0 69%,#7c7e80 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededee', endColorstr='#7c7e80',GradientType=1 ) !important; /* IE6-9 */
+            overflow: hidden !important;
+        }
+        /*------headerContainer------*/
+        .headerContainer{
+            width:100% !important;
+        }
+        .textLogo{
+            background: url('./assets/receipt/images/bg-hd.png') no-repeat center top !important;
+            background-size: 100% !important;
+            padding: 16% 0 3% 19% !important;
+        }
+        .textLogo h3{
+            font-size: 12px !important;
+            margin: 0 !important;
+            color: #000000 !important;
+            line-height: 14px !important;
+            margin-bottom: -5px !important;
+        }
+        .textLogo a{
+            display: inline-block !important;
+            text-decoration: none !important;
+            font-size: 10px !important;
+            margin: 0 !important;
+            font-weight:  500 !important;
+            color: #000000 !important;
+            line-height: 12px !important;
+        }
+        .cnt-hdtext{
+            overflow: hidden !important;
+            padding: 20px 25px 0 !important;
+        }
+        .textStever{
+            width: 40% !important;
+            float: left !important;
+            background: url('./assets/receipt/images/bg-sever.png') no-repeat center top !important;
+            background-size: 100% !important;
+            padding: 1% 0 1% !important;
+        }
+        .textStever h3{
+            font-size: 22px !important;
+            display:  inline-block !important;
+            font-family: 'HelveticaNeueBold' !important;
+            color: #000000 !important;
+            margin: 0 !important;
+            padding-left: 35% !important;
+            line-height: 18px !important;
+        }
+        .textStever h3 span{
+            font-size: 12px !important;
+            font-family: 'HelveticaNeueMedium' !important;
+        }
+        .hdroboto{
+            width: 60% !important;
+            float: right !important;
+        }
+        .textRoboto-title{
+            width: 83% !important;
+            float:  right !important;
+            border-radius: 10px !important;
+            padding: 0px 15px !important;
+            background: #263e71 !important;
+        }
+        .textRoboto-title table tr td{
+            width: 88% !important;
+            color: #fff !important;
+            font-size: 10px !important;
+            text-transform: uppercase !important;
+        }
+        .textRoboto{
+            width: 96% !important;
+            float: right !important;
+            right: 27px !important;
+        }
+        .textRoboto table tr td{
+            width: 3% !important;
+            text-align: center !important;
+            font-size: 10px !important;
+            text-transform: uppercase !important;
+        }
+        .textRoboto table tr td span{
+            font-size: 27px !important;
+        }
+        .textTitleTab{
+            width: 88% !important;
+            background: #2597ab !important;
+            padding: 16px 20px !important;
+            margin: 0 auto !important;
+            border-radius: 18px !important;
+        }
+        .textTitleTab table tr td{
+            width: 1% !important;
+            /* text-align: center !important; */
+            color: #fff !important;
+            font-size: 9px !important;
+            font-family: 'HelveticaNeueBold' !important;
+            text-transform: uppercase !important;
+            text-align: center !important;
+        }
+        /*contentContainer*/
+        .contentContainer{
+            width: 100% !important;
+            overflow: hidden !important;
+        }
+        .contentTable{
+            width: 84% !important;
+            margin:  0 auto !important;
+            border-radius: 0 0 10px 10px !important;
+            overflow: hidden !important;
+            background: #fff !important;
+            border: 1px solid #000 !important;
+            border-top: 0 !important;
+            padding: 0 15px 100px !important;
+        }
+        .contentTable table tr td{
+            text-align: center !important;
+            color: #000 !important;
+            font-size: 12px !important;
+        }
+        .contentTable table tr td.tab-center{
+            text-align: left !important;
+        }
+        .contentTable table tr{
+            border-bottom: 1px solid #000 !important;
+        }
+        /* footer */
+        .footerContainer{
+            width:100% !important;
+            background: url('./assets/receipt/images/bg2.png') no-repeat center top -12px !important;
+            background-size: 88% !important;
+            position: relative !important;
+            min-height: 227px !important;
+        }
+        .footerContainer p{
+            font-size: 15px !important;
+            margin: 0 auto !important;
+            display:  inline-block !important;
+            color: #000 !important;
+        }
+        .footerContainer .numberContainer{
+            line-height: 1.85 !important;
+            width: 23.33% !important;
+            margin: 0 auto !important; 
+            margin-right: 10% !important;
+        }
+        .textSub {
+            width: 100% !important;
+            overflow: hidden !important;
+        }
+        .textTot {
+            width: 100% !important;
+            overflow: hidden !important;
+        }
+        .textTax {
+            width: 100% !important;
+            overflow: hidden !important;
+        }
+        .textSub p{
+            float: right !important;
+            padding: 4px 116px 0 0 !important;
+        }
+
+        .textTax p{
+            float: right !important;
+            padding: 7px 121px 0 0 !important;
+        }
+
+        .textTot p{
+            padding: 14px 115px 0 0 !important;
+            float: right !important;
+        }
+        .footerCopyContainer{
+            width: 100% !important;
+            padding: 10px 0 !important;
+            overflow: hidden !important;
+        }
+        .footerCopyContainer p{
+            text-align: center !important;
+            font-size: 10px !important;
+            color: #000 !important;
+            font-family: 'HelveticaNeueBold' !important;
+            margin: 0 !important;
+        }
+        .footerCopyContainer p a{
+            color: #000 !important;
+        }
+
+        @media (max-width: 550px){
+            .textLogo {
+                padding: 15% 0 4% 19% !important;
+            }
+            .headerContainer{
+                min-height: 244px !important;
+            }
+            .textLogo h3 {
+                font-size: 10px !important;
+                margin-bottom: -8px !important;
+            }
+            .textLogo a {
+                font-size: 9px !important;
+            }
+            .textStever h3 {
+                font-size: 19px !important;
+                line-height: 15px !important;
+            }
+            .textStever h3 span {
+                font-size: 10px !important;
+            }
+            .textRoboto {
+                margin-top: 1px !important;
+                padding: 0 !important;
+            }
+            .textRoboto table tr td span {
+                font-size: 16px !important;
+            }
+            .footerContainer {
+                background: url('./assets/receipt/images/bg2.png') no-repeat center top -6px !important;
+                background-size: 88% !important;
+                min-height: 193px !important;
+            }
+            .footerContainer p{
+                font-size: 8px !important;
+            }
+            .textSub p {
+                width: 69px !important;
+                padding: 6px 60px 0 0 !important;
+            }
+            .textTax p {
+                width: 69px !important;
+                padding: 14px 59px 0 0 !important;
+            }
+            .textTot p {
+                width: 69px !important;
+                padding: 9px 60px 0 0 !important;
+            }
+        }
+        @media (max-width: 450px){
+            .cnt-hdtext {
+                overflow: hidden !important;
+                padding: 20px 9px 0 !important;
+            }
+            .headerContainer{
+                min-height: 206px !important;
+            }
+            .textStever h3{
+                line-height: 13px !important;
+                padding-left: 28% !important;
+            }
+            .textSub p {
+                padding: 0px 20px 0 0 !important;
+            }
+            .textTax p {
+                padding: 4px 20px 0 0 !important;
+            }
+            .textTot p {
+                padding: 5px 20px 0 0 !important;
+            }
+        }
+        @media (max-width: 384px){
+            .textTitleTab{
+                padding: 16px 10px !important;
+            }
+            .contentTable{
+                width: 78% !important;
+            }
+            .textStever h3{
+                font-size: 13px !important;
+                line-height: 11px !important;
+            }
+            .textStever h3 span {
+                font-size: 9px !important;
+            }
+        }
+        @media (max-width: 345px){
+            .headerContainer {
+                min-height: 154px !important;
+            }
+            .textRoboto-title table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td {
+                font-size: 8px !important;
+            }
+            .textRoboto table tr td span {
+                font-size: 13px !important;
+            }
+            
+        }
+        @media (max-width: 330px){
+            .headerContainer {
+                min-height: 140px !important;
+            }
+            .footerContainer {
+                background: url('./assets/receipt/images/bg2.png') no-repeat center top -7px !important;
+                min-height: 122px !important;
+                background-size: 88% !important;
+            }
+            .textSub p{
+                padding: 1px 10px 0 0 !important;
+            }
+            .textTax p {
+                padding: 1px 10px 0 0 !important;
+            }
+            .textTot p {
+                padding: 1px 10px 0 0 !important;
+            }
+            .textRoboto-title table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td span {
+                font-size: 12px !important;
+            }
+        }
+        @media (max-width: 310px){
+            .headerContainer {
+                min-height: 138px !important;
+            }
+            .textRoboto-title table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td span {
+                font-size: 12px !important;
+            }
+        }
+        @media (max-width: 290px){
+
+            .textLogo h3 {
+                font-size: 9px !important;
+                margin-bottom: -10px !important;
+            }
+            .textLogo a {
+                font-size: 8px !important;
+            }
+            .textRoboto-title table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td {
+                font-size: 6px !important;
+            }
+            .textRoboto table tr td span {
+                font-size: 12px !important;
+            }
+            .footerContainer {
+                min-height: 107px !important;
+            }
+            .textSub p {
+                padding: 0px 10px 0 0 !important;
+            }
+            .textTax p {
+                padding: 0px 10px 0 0 !important;
+            }
+            .textTot p {
+                padding: 0px 10px 0 0 !important;
+            }
+        }
+    </style>
+
+<div class="modal-content" style="max-width: 600px !important;">
+    <div class="modal-body"  style="background: #fff; padding: 0 !important;">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close" style="position: absolute; top: 5px; right: 15px;">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <div ba-panel-title="Products" ba-panel-class="with-scroll"  style="background: #fff;">
+            <div class=""  style="background: #fff;">
+                <div class="wrapper">
+                    <div class="headerContainer">
+                        <div class="textLogo">
+                            <h3>The First and Only Robotic Bar</h3>
+                            <a href="http://www.hiefficiencybar.com">www.hiefficiencybar.com</a>
+                        </div>
+                        <div class="cnt-hdtext">
+                            <div class="textStever">
+                                <h3><span>Serving:</span> <br>{{ data_order.user_view }}</h3>
+                            </div>
+                            <div class="hdroboto">
+                                <div class="textRoboto-title">
+                                    <table>
+                                        <tr>
+                                            <td>DATE:</td>
+                                            <td>TIME:</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="textRoboto">
+                                    <table style="
+                                    width: 96% !important;
+                                    margin:  0 auto !important;
+                                    ">
+                                    <tr>
+                                        <td>ROBOT <br><span>{{ data_order.robot }}</span></td>
+                                        <td>PICKUP @ SLIDE <br><span>{{ data_order.tray_number }}</span></td>
+                                        <td>EST. WAIT TIME <br> <span>4:13</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="textTitleTab">
+                        <table>
+                            <tr>
+                                <td>OTY</td>
+                                <td>DESCRIPTION</td>
+                                <td>PRICE</td>
+                                <td>INGREDIENTS</td>
+                                <td>AMOUNT</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contentContainer">
+                    <div class="contentTable">
+                        <table width="100%" >
+                            <!-- {% for tab in order.products.all %} -->
+                            <!-- <tr> -->
+                            <tr ng-repeat="tab in products">
+                                <td width="15%">{{tab.quantity}}</td>
+                                <td width="25%"><img style="width: 40px;" src="{{tab.drink.image}}"> <br>{{tab.drink.name}}</td>
+                                <td width="15%">{{tab.amount / tab.quantity | number:0 }}</td>
+                                <td width="30%" class="tab-center">
+                                    <!-- <pre>{{tab.drink.ingredients}}</pre> -->
+                                    <p ng-if="tab.drink.ingredients" ng-repeat="ingre in tab.drink.ingredients" style="margin: 0; width: 100%;">
+                                        {{ ingre.ingredient.name }}
+                                    </p>
+
+                                    <!-- {% for ingre in tab.drink.ingredients.all %}
+                                    {{ ingre.ingredient.name }}<br>
+                                    {% endfor %} -->
+                                </td>
+                                <td width="15%">{{ tab.amount }}</td>
+                            </tr>
+                            <!-- {% endfor %} -->
+                        </table>
+                    </div>
+                </div>
+                <!-- footer -->
+                <div class="footerContainer">
+                    <div class="numberContainer">
+                        <div ng-if="data_order.amount_without_fee" style="display: flex !important;"><p>${{ data_order.amount_without_fee }}</p></div>
+                        <div ng-if="!data_order.amount_without_fee" style="display: flex !important;"><p>$0</p></div>
+                        <div ng-if="data_order.amount" style="display: flex !important;"><p>${{ data_order.amount - data_order.amount_without_fee | number:2 }}</p></div>
+                        <div ng-if="!data_order.amount" style="display: flex !important;"><p>$0</p></div>
+                        <div style="display: flex !important;"><p>${{ data_order.amount }}</p></div>
+                    </div>
+                </div>
+                <div class="footerCopyContainer">
+                    <p>Contact Us at <a href="mailto:Service@HiEfficiencyBar.com">Service@HiEfficiencyBar.com</a> for more information</p>
+                </div>
+            </div>
+
+
+                <!-- <table class="table table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="table-id border_top_1">Drink Name</th>
+                            <th class="border_top_1">Image Order</th>
+                            <th class="border_top_1">Garnishes</th>
+                            <th class="border_top_1">Ice</th>
+                            <th class="border_top_1">Quantity</th>
+                            <th class="border_top_1">Amount</th>
+                            <th class="border_top_1" style="width: 120px;">QR Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in products">
+                            <td class="ng-binding border_top_1" style="width : 30%; text-align : left;">
+                                <a href="" ng-click="openDrinkDetail(item.drink.id)">{{item.drink.name}}</a>
+                            </td>
+                            <td class="ng-binding border_top_1">
+                                <div class="" style="padding: 5px; width: 100px; margin: 0 auto;">
+                                    <img src="{{item.drink.image}}" style="width: 100%;">
+                                </div>
+                            </td>
+                            <td class="ng-binding border_top_1">
+                                <p style="margin-bottom : 0px;" ng-repeat="gar in item.garnishes">{{gar.garnish.name}}</p>
+                            </td>
+                            <td class="ng-binding border_top_1">
+                                {{ item.ice }}
+                            </td>
+                            <td class="ng-binding border_top_1">
+                                {{ item.quantity }}
+                            </td>
+                            <td class="ng-binding border_top_1">
+                                <span ng-if="!item.amount">0</span>
+                                <span ng-if="item.amount">{{ item.amount }}</span>
+                            </td>
+                            <td style="width: 120px; border: 1px solid rgba(107, 105, 105, 0.2);">
+                                <a href="" style="width: 140px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: inline-block;">{{data_order.qr_code}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
+            </div>
+        </div>
+    </div>
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="$dismiss()">Save changes</button>
+    </div> -->
+</div>

@@ -1,0 +1,80 @@
+<!-- <div class="" style="margin-bottom : 15px;">
+    <a class="btn btn-primary" href="#/order/carts" style="background: #209e91; border-color: #209e91;">Order in cart</a>
+</div> -->
+
+<div ba-panel="" ba-panel-title="Order history" ba-panel-class="with-scroll">
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="text-align : left;">Drink Name</th>
+                    <th style="text-align : left;">Date Time</th>
+                    <th style="text-align : left;">User</th>
+                    <th style="text-align : left;">Glass Name</th>
+                    <th style="text-align : center;">Image</th>
+                    <th style="text-align : left;">Ingredients</th>
+                    <th style="text-align : left;">Prep</th>
+                    <th style="text-align : left;">Price</th>
+                    <th style="text-align : left;">Total Part</th>
+                    <th style="text-align : left;">Estimate Time</th>
+                    <th style="text-align : left;">Ice</th>
+                    <th style="text-align : left;">Quantity</th>
+                    <th style="text-align : left;">Status</th>
+                    <!-- <th style="text-align : left;">Amount</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in listData" class="ng-scope">
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.drink.name}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{ item.creation_date | date:'MM/dd/yyyy - HH:mm:ss' }}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        <a href="#/manager-user/user-detail/{{ item.user.id }}">{{item.user.first_name}} {{item.user.last_name}}</a>  
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.drink.glass.name}}
+                    </td>
+                    <td class="ng-binding" style="text-align : center;">
+                        <!-- <img class="" src="{{ item.drink.image }}" style="width:150px;" /> -->
+                        <div style="width: 100px; height: auto; padding: 10px; margin: 0 auto;">
+                            <img class="img-thumbnail" src="{{ item.drink.image }}" style="width: 100%;">
+                        </div>
+                    </td>
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        <p ng-repeat="ingre in item.drink.ingredients" style="margin: 0;">{{ ingre.ingredient.name }}</p>
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.drink.prep_view}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.drink.price}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.drink.total_part}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.drink.estimate_time}} (s)
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.ice}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.quantity}}
+                    </td>
+                    <td class="ng-binding" style="text-align : left;">
+                        {{item.status_view}}
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="align-right" ng-show="bigTotalItems > 10">
+            <ul uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" ng-click="changePage(bigCurrentPage)"
+                class="pagination-sm" boundary-link-numbers="true"></ul>
+        </div>
+    </div>
+</div>

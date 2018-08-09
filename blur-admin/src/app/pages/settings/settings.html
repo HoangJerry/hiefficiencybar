@@ -1,0 +1,68 @@
+<!-- <div class="" style="margin-bottom : 15px; text-align : right;">
+    <a class="btn btn-default" href="#/robot/history/list" style="margin-left : 15px;"><i class="ion-loop"></i> History</a>
+</div> -->
+
+<div ba-panel="" ba-panel-title="Settings" ba-panel-class="with-scroll">
+	<div class="panel-body">
+		<form name="form" class="form_create">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label>Bottle Waring</label>
+						<input class="form-control" type="number" name="bottle_waring" min="0" ng-model="detail.bottle_waring" ng-change="changeInfo('bottle_waring', detail.bottle_waring)">
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label>Max Drink Order</label>
+						<input class="form-control" type="number" name="max_drink_order" min="0" ng-model="detail.max_drink_order" ng-change="changeInfo('max_drink_order', detail.max_drink_order)">
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label>Fee</label>
+						<input class="form-control" type="number" name="fee" min="0" ng-model="detail.fee" ng-change="changeInfo('fee', detail.fee)">
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label>Fee Unit</label>
+						<select class="form-control" name="fee_unit" ng-model="detail.fee_unit" ng-change="changeInfo('fee_unit', detail.fee_unit)">
+							<option value="1">$</option>
+							<option value="100">%</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label>Tax (%)</label>
+						<input class="form-control" type="number" name="tax" min="0" ng-model="detail.tax" ng-change="changeInfo('tax', detail.tax)">
+					</div>
+				</div>
+
+				<!-- <div class="col-sm-6">
+					<div class="form-group">
+						<label style="color : #fff; font-weight : bold;" for="">Bar Status</label>
+						<div style="width: 100%;">
+							<ba-switcher switcher-style="success" switcher-value="detail.bar_status" ng-click="changeInfo('bar_status', detail.bar_status)"></ba-switcher>
+						</div>
+					</div>
+				</div> -->
+			</div>
+
+			
+
+
+
+
+			<div style="text-align : center;">
+				<h3 class="with-line ng-scope"></h3>
+				<button ng-disabled="form.$invalid && isDisable" type="button" class="btn btn-primary" ng-click="save()">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
